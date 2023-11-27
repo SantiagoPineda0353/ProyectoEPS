@@ -1,0 +1,80 @@
+INSERT INTO horario VALUES (101, '00:00:00', '08:00:00');
+INSERT INTO horario VALUES (102, '00:30:00', '09:00:00');
+INSERT INTO horario VALUES (103, '01:00:00', '09:00:00');
+INSERT INTO horario VALUES (104, '01:30:00', '10:00:00');
+INSERT INTO horario VALUES (105, '02:00:00', '10:00:00');
+INSERT INTO horario VALUES (106, '02:30:00', '11:00:00');
+INSERT INTO horario VALUES (107, '03:00:00', '11:00:00');
+INSERT INTO horario VALUES (108, '03:30:00', '12:00:00');
+INSERT INTO horario VALUES (109, '04:00:00', '12:00:00');
+INSERT INTO horario VALUES (110, '04:30:00', '13:00:00');
+INSERT INTO horario VALUES (111, '05:00:00', '13:00:00');
+INSERT INTO horario VALUES (112, '05:30:00', '14:00:00');
+INSERT INTO horario VALUES (113, '06:00:00', '14:00:00');
+INSERT INTO horario VALUES (114, '06:30:00', '15:00:00');
+INSERT INTO horario VALUES (115, '07:00:00', '15:00:00');
+INSERT INTO horario VALUES (116, '07:30:00', '16:00:00');
+INSERT INTO horario VALUES (117, '08:00:00', '16:00:00');
+INSERT INTO horario VALUES (118, '08:30:00', '17:00:00');
+INSERT INTO horario VALUES (119, '09:00:00', '17:00:00');
+INSERT INTO horario VALUES (120, '09:30:00', '18:00:00');
+INSERT INTO horario VALUES (121, '10:00:00', '18:00:00');
+INSERT INTO horario VALUES (122, '10:30:00', '19:00:00');
+INSERT INTO horario VALUES (123, '11:00:00', '19:00:00');
+INSERT INTO horario VALUES (124, '11:30:00', '20:00:00');
+INSERT INTO horario VALUES (125, '12:00:00', '20:00:00');
+INSERT INTO horario VALUES (126, '12:30:00', '21:00:00');
+INSERT INTO horario VALUES (127, '13:00:00', '21:00:00');
+INSERT INTO horario VALUES (128, '13:30:00', '22:00:00');
+INSERT INTO horario VALUES (129, '14:00:00', '22:00:00');
+INSERT INTO horario VALUES (130, '14:30:00', '23:00:00');
+INSERT INTO horario VALUES (131, '15:00:00', '23:00:00');
+INSERT INTO horario VALUES (132, '15:30:00', '00:00:00');
+INSERT INTO horario VALUES (133, '16:00:00', '00:00:00');
+INSERT INTO horario VALUES (134, '16:30:00', '01:00:00');
+INSERT INTO horario VALUES (135, '17:00:00', '01:00:00');
+INSERT INTO horario VALUES (136, '17:30:00', '02:00:00');
+INSERT INTO horario VALUES (137, '18:00:00', '02:00:00');
+INSERT INTO horario VALUES (138, '18:30:00', '03:00:00');
+INSERT INTO horario VALUES (139, '19:00:00', '03:00:00');
+INSERT INTO horario VALUES (140, '19:30:00', '04:00:00');
+INSERT INTO horario VALUES (141, '20:00:00', '04:00:00');
+INSERT INTO horario VALUES (142, '20:30:00', '05:00:00');
+INSERT INTO horario VALUES (143, '21:00:00', '05:00:00');
+INSERT INTO horario VALUES (144, '21:30:00', '06:00:00');
+INSERT INTO horario VALUES (145, '22:00:00', '06:00:00');
+INSERT INTO horario VALUES (146, '22:30:00', '07:00:00');
+INSERT INTO horario VALUES (147, '23:00:00', '07:00:00');
+INSERT INTO horario VALUES (148, '23:30:00', '08:00:00');
+
+
+
+INSERT INTO estrato VALUES (0);
+INSERT INTO estrato VALUES (1);
+INSERT INTO estrato VALUES (2);
+INSERT INTO estrato VALUES (3);
+INSERT INTO estrato VALUES (4);
+INSERT INTO estrato VALUES (5);
+INSERT INTO estrato VALUES (6);
+
+INSERT INTO sede VALUES (default,'Bogota');
+INSERT INTO sede VALUES (default,'Medellin');
+INSERT INTO sede VALUES (default,'Cali');
+INSERT INTO sede VALUES (default,'Barranquilla');
+INSERT INTO sede VALUES (default,'Ibague');
+
+INSERT INTO programa_especial VALUES (default,'Yoga');
+INSERT INTO programa_especial VALUES (default,'Fisioterapia');
+INSERT INTO programa_especial VALUES (default,'Paleativos');
+INSERT INTO programa_especial VALUES (default,'Ortopedia');
+
+INSERT INTO modalidad VALUES (default, 'Urgencia');
+INSERT INTO modalidad VALUES (default, 'Especialidades');
+INSERT INTO modalidad VALUES (default, 'Medicina General');
+
+INSERT INTO examen VALUES (default, 'Analisis Orina');
+INSERT INTO examen VALUES (default, 'Analisis Sangre');
+INSERT INTO examen VALUES (default, 'Pruebas de Lab');
+INSERT INTO examen VALUES (default, 'Pruebas Geneticas');
+INSERT INTO examen VALUES (default, 'Ecografia');
+
