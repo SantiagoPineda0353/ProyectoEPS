@@ -25,13 +25,16 @@ fecha_ingreso DATE
 CREATE TABLE medico_sustituto(
 ) INHERITS (medico);
 
+ALTER TABLE medico_sustituto
+    ADD CONSTRAINT med_un UNIQUE (licencia_medica);
+
 CREATE TABLE periodo(
 licencia_medica VARCHAR(60),
 fecha_de_ingreso DATE,
 fecha_de_salida DATE,
 PRIMARY KEY (licencia_medica,fecha_de_ingreso,fecha_de_salida),
 FOREIGN KEY (licencia_medica)
-    REFERENCES medico(licencia_medica)
+    REFERENCES medico_sustituto(licencia_medica)
 );
 
 CREATE TABLE horario(
