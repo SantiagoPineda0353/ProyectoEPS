@@ -86,6 +86,7 @@ PRIMARY KEY(id_programa)
 CREATE TABLE programa_especial_adulto(
 id_paciente INT,
 id_programa INT,
+asistencia BOOLEAN,
 PRIMARY KEY (id_paciente,id_programa),
 FOREIGN KEY (id_paciente)
     REFERENCES paciente(id_paciente),
