@@ -37,11 +37,20 @@ FOREIGN KEY (licencia_medica)
     REFERENCES medico_sustituto(licencia_medica)
 );
 
+CREATE TABLE dia(
+id_dia INT,
+nombre VARCHAR(10),
+PRIMARY KEY (id_dia)
+);
+
 CREATE TABLE horario(
 id_horario INT,
 hora_fin TIME NOT NULL,
 hora_inicio TIME NOT NULL,
-PRIMARY KEY (id_horario)
+id_dia INT NOT NULL,
+PRIMARY KEY (id_horario),
+FOREIGN KEY (id_dia)
+    REFERENCES dia(id_dia)
 );
 
 CREATE TABLE medico_horario(
