@@ -22,9 +22,12 @@ CREATE TABLE medico_titular(
 fecha_ingreso DATE
 ) INHERITS (medico);
 
+<<<<<<< HEAD
 ALTER TABLE medico_titular 
     ADD CONSTRAINT medico_tit_pk
     PRIMARY KEY (licencia_medica);
+=======
+>>>>>>> Steven
 
 CREATE TABLE medico_sustituto(
 ) INHERITS (medico);
@@ -36,6 +39,24 @@ ALTER TABLE medico_sustituto
 
 ALTER TABLE medico_sustituto
     ADD CONSTRAINT med_un UNIQUE (licencia_medica);
+
+CREATE OR REPLACE FUNCTION insertar_en_medico()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO medico (licencia_medica, nombre, direccion, fecha_nac) VALUES (NEW.licencia_medica, NEW.nombre, NEW.direccion, NEW.fecha_nac);
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER insertar_en_medico_trigger
+AFTER INSERT ON medico_titular
+FOR EACH ROW
+EXECUTE FUNCTION insertar_en_medico();
+
+CREATE TRIGGER insertar_en_medico_trigger
+AFTER INSERT ON medico_sustituto
+FOR EACH ROW
+EXECUTE FUNCTION insertar_en_medico();
 
 CREATE TABLE periodo(
 licencia_medica VARCHAR(60),

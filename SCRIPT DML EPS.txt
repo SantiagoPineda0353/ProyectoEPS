@@ -467,3 +467,9 @@ INSERT INTO estrato VALUES (5);
 INSERT INTO estrato VALUES (6);
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> Steven
