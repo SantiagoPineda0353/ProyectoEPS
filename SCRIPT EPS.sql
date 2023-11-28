@@ -22,8 +22,20 @@ CREATE TABLE medico_titular(
 fecha_ingreso DATE
 ) INHERITS (medico);
 
+ALTER TABLE medico_titular 
+    ADD CONSTRAINT medico_tit_pk
+    PRIMARY KEY (licencia_medica);
+
 CREATE TABLE medico_sustituto(
 ) INHERITS (medico);
+
+
+ALTER TABLE medico_sustituto 
+    ADD CONSTRAINT medico_sus_pk
+    PRIMARY KEY (licencia_medica);
+
+ALTER TABLE medico_sustituto
+    ADD CONSTRAINT med_un UNIQUE (licencia_medica);
 
 CREATE TABLE periodo(
 licencia_medica VARCHAR(60),
@@ -31,14 +43,23 @@ fecha_de_ingreso DATE,
 fecha_de_salida DATE,
 PRIMARY KEY (licencia_medica,fecha_de_ingreso,fecha_de_salida),
 FOREIGN KEY (licencia_medica)
-    REFERENCES medico(licencia_medica)
+    REFERENCES medico_sustituto(licencia_medica)
+);
+
+CREATE TABLE dia(
+id_dia INT,
+nombre VARCHAR(10),
+PRIMARY KEY (id_dia)
 );
 
 CREATE TABLE horario(
 id_horario INT,
 hora_fin TIME NOT NULL,
 hora_inicio TIME NOT NULL,
-PRIMARY KEY (id_horario)
+id_dia INT NOT NULL,
+PRIMARY KEY (id_horario),
+FOREIGN KEY (id_dia)
+    REFERENCES dia(id_dia)
 );
 
 CREATE TABLE medico_horario(
@@ -86,6 +107,7 @@ PRIMARY KEY(id_programa)
 CREATE TABLE programa_especial_adulto(
 id_paciente INT,
 id_programa INT,
+asistencia BOOLEAN,
 PRIMARY KEY (id_paciente,id_programa),
 FOREIGN KEY (id_paciente)
     REFERENCES paciente(id_paciente),
