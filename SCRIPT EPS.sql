@@ -22,11 +22,30 @@ CREATE TABLE medico_titular(
 fecha_ingreso DATE
 ) INHERITS (medico);
 
+
 CREATE TABLE medico_sustituto(
 ) INHERITS (medico);
 
 ALTER TABLE medico_sustituto
     ADD CONSTRAINT med_un UNIQUE (licencia_medica);
+
+CREATE OR REPLACE FUNCTION insertar_en_medico()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO medico (licencia_medica, nombre, direccion, fecha_nac) VALUES (NEW.licencia_medica, NEW.nombre, NEW.direccion, NEW.fecha_nac);
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER insertar_en_medico_trigger
+AFTER INSERT ON medico_titular
+FOR EACH ROW
+EXECUTE FUNCTION insertar_en_medico();
+
+CREATE TRIGGER insertar_en_medico_trigger
+AFTER INSERT ON medico_sustituto
+FOR EACH ROW
+EXECUTE FUNCTION insertar_en_medico();
 
 CREATE TABLE periodo(
 licencia_medica VARCHAR(60),
@@ -37,11 +56,20 @@ FOREIGN KEY (licencia_medica)
     REFERENCES medico_sustituto(licencia_medica)
 );
 
+CREATE TABLE dia(
+id_dia INT,
+nombre VARCHAR(10),
+PRIMARY KEY (id_dia)
+);
+
 CREATE TABLE horario(
 id_horario INT,
 hora_fin TIME NOT NULL,
 hora_inicio TIME NOT NULL,
-PRIMARY KEY (id_horario)
+id_dia INT NOT NULL,
+PRIMARY KEY (id_horario),
+FOREIGN KEY (id_dia)
+    REFERENCES dia(id_dia)
 );
 
 CREATE TABLE medico_horario(
