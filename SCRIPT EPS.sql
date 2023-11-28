@@ -22,8 +22,17 @@ CREATE TABLE medico_titular(
 fecha_ingreso DATE
 ) INHERITS (medico);
 
+ALTER TABLE medico_titular 
+    ADD CONSTRAINT medico_tit_pk
+    PRIMARY KEY (licencia_medica);
+
 CREATE TABLE medico_sustituto(
 ) INHERITS (medico);
+
+
+ALTER TABLE medico_sustituto 
+    ADD CONSTRAINT medico_sus_pk
+    PRIMARY KEY (licencia_medica);
 
 ALTER TABLE medico_sustituto
     ADD CONSTRAINT med_un UNIQUE (licencia_medica);
