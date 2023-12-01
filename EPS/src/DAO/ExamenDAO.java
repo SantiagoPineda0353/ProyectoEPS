@@ -17,11 +17,12 @@ import javax.swing.JOptionPane;
  *
  * @author 57302
  */
-public class ExamenDAO {
+public class ExamenDAO implements DaoInterfaceExamen {
     ConexionBD conexion = new ConexionBD();
     ResultSet rs=null;
     
     
+    @Override
         public void crear(Examen examen) {
        
         
@@ -47,6 +48,7 @@ public class ExamenDAO {
         
        
     }
+    @Override
         public void buscar(Examen examen) {
         try{
             Connection conectar = conexion.Conexion();
@@ -68,6 +70,7 @@ public class ExamenDAO {
         
         }
     }
+    @Override
         public ArrayList<Examen> MostrarTodo() {
             ArrayList<Examen> lista1 = new ArrayList<>();
              String sql = "Select * from examen";
@@ -94,6 +97,7 @@ public class ExamenDAO {
             return lista1;
         }
         
+    @Override
             public void eliminar(Examen examen) {
         String sql="delete from examen where id_examen ="+String.valueOf(examen.getId_examen());
         try{

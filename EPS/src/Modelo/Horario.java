@@ -10,6 +10,7 @@ import java.time.LocalTime;
 /**
  *
  * @author Santiago Pineda
+ * 
  */
 public class Horario {
     int id_horario;

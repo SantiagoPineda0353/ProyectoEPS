@@ -20,10 +20,11 @@ import javax.swing.JOptionPane;
  *
  * @author 57302
  */
-public class HorarioDAO {
+public class HorarioDAO implements DaoInterfaceHorario{
     ConexionBD conexion = new ConexionBD();
     ResultSet rs=null;
     
+    @Override
     public void crear(Horario horario) {
        
         
@@ -57,6 +58,7 @@ public class HorarioDAO {
        
     }
     
+    @Override
     public void buscar(Horario horario) {
         try{
             Connection conectar = conexion.Conexion();
@@ -81,6 +83,7 @@ public class HorarioDAO {
         }
     }
     
+    @Override
     public ArrayList<Horario> MostrarTodo() {
             ArrayList<Horario> lista1 = new ArrayList<>();
              String sql = "Select * from horario";
@@ -108,6 +111,7 @@ public class HorarioDAO {
             }
             return lista1;
         }
+    @Override
     public void eliminar(Horario horario) {
         String sql="delete from horario where id_horario ="+horario.getId_horario();
         try{

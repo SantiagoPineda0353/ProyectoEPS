@@ -9,6 +9,7 @@ import java.util.Date;
 /**
  *
  * @author Santiago Pineda
+ * 
  */
 public class Medico {
     String licencia_medica;

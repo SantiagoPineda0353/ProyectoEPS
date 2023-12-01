@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 /**
  *
  * @author Santiago Pineda
+ * 
  */
 public class Cita {
     int id_cita;

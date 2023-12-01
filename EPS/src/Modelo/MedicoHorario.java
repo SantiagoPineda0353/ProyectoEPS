@@ -7,6 +7,7 @@ package Modelo;
 /**
  *
  * @author Santiago Pineda
+ * 
  */
 public class MedicoHorario {
     Medico medico;

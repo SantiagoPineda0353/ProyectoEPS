@@ -18,10 +18,11 @@ import javax.swing.JOptionPane;
  *
  * @author 57302
  */
-public class MedicoDAO {
+public class MedicoDAO implements DaoInterfaceMedico{
     ConexionBD conexion = new ConexionBD();
     ResultSet rs=null;
     
+    @Override
     public void crear(Medico medico) {
        
         
@@ -42,7 +43,7 @@ public class MedicoDAO {
             insertar.setDate(4,Date.valueOf(medico.getFecha_nac().toString()));
             insertar.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro exitoso");
-           
+            
             }
             
            
@@ -54,6 +55,7 @@ public class MedicoDAO {
         
        
     }
+    @Override
     public void buscar(Medico medico) {
         try{
             Connection conectar = conexion.Conexion();
@@ -77,6 +79,7 @@ public class MedicoDAO {
         
         }
     }
+    @Override
     public ArrayList<Medico> MostrarTodo() {
             ArrayList<Medico> lista1 = new ArrayList<>();
              String sql = "Select * from medico";
@@ -105,6 +108,7 @@ public class MedicoDAO {
             }
             return lista1;
         }
+    @Override
     public void eliminar(Medico medico) {
         String sql="delete from medico where licencia_medica ="+medico.getLicencia_medica();
         try{

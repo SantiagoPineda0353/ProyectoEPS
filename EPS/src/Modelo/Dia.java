@@ -7,6 +7,7 @@ package Modelo;
 /**
  *
  * @author Santiago Pineda
+ * 
  */
 public class Dia {
     int id_dias;

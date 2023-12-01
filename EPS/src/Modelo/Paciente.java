@@ -22,6 +22,10 @@ public class Paciente {
     public Paciente() {
     }
 
+    public Paciente(int id_paciente) {
+        this.id_paciente = id_paciente;
+    }
+    
     public Paciente(int id_paciente, String nombre, String direccion, Date fecha_nac, String lugar_nac, Estrato estrato, Sede sede) {
         this.id_paciente = id_paciente;
         this.nombre = nombre;

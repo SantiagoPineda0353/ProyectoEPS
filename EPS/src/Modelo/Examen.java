@@ -7,6 +7,7 @@ package Modelo;
 /**
  *
  * @author Santiago Pineda
+ * 
  */
 public class Examen {
     int id_examen;

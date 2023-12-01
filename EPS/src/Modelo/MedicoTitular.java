@@ -9,6 +9,7 @@ import java.util.Date;
 /**
  *
  * @author Santiago Pineda
+ * 
  */
 public class MedicoTitular extends Medico{
     Date fecha_ingreso;

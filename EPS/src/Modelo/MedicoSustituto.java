@@ -9,6 +9,7 @@ import java.util.Date;
 /**
  *
  * @author Santiago Pineda
+ * 
  */
 public class MedicoSustituto extends Medico{
 

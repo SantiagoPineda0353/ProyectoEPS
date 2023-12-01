@@ -7,12 +7,17 @@ package Modelo;
 /**
  *
  * @author Santiago Pineda
+ * 
  */
 public class Sede {
     int id_sede;
     String nombre;
 
     public Sede() {
+    }
+
+    public Sede(int id_sede) {
+        this.id_sede = id_sede;
     }
 
     public Sede(String nombre) {

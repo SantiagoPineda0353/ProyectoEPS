@@ -18,6 +18,7 @@ import Modelo.Medico;
 /**
  *
  * @author 57302
+ * 
  */
 public class CitaDAO implements DaoInterfaceCita{
     
@@ -32,7 +33,7 @@ public class CitaDAO implements DaoInterfaceCita{
             PreparedStatement insertar = conectar.prepareStatement("insert into cita values (default,?,?,?,?,?,?)");
             
             
-           insertar.setLong(1,cita.getPaciente().getId_paciente());
+            insertar.setLong(1,cita.getPaciente().getId_paciente());
             insertar.setString(2,cita.getDiagnostico());
             insertar.setString(3, cita.getFecha_hora().toString());
             insertar.setInt(4,cita.getModalidad().getId_modalidad());
@@ -71,9 +72,10 @@ public class CitaDAO implements DaoInterfaceCita{
         
         }
     }
+    @Override
     public ArrayList<Cita> MostrarTodo() {
             ArrayList<Cita> lista1 = new ArrayList<>();
-             String sql = "Select * from cita";
+             String sql = "Select * from cita ";
            try {
 
                Connection conectar = conexion.Conexion();

@@ -327,22 +327,5 @@ public class LoginEPS extends javax.swing.JFrame {
     /**
      * metodo Iniciar Sesion
      */
-    private void Login() {
-        if (!txt_usuario.getText().isEmpty() && !txt_password.getText().isEmpty()) {
-            Ctrl_Usuario controlUsuario = new Ctrl_Usuario();
-            Usuario usuario = new Usuario();
-            usuario.setUsuario(txt_usuario.getText().trim());
-            usuario.setPassword(txt_password.getText().trim());
-            if (controlUsuario.loginUser(usuario)) {
-                //JOptionPane.showMessageDialog(null, "Login Correcto...");
-                FrmMenu menu = new FrmMenu();
-                menu.setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuario o Clave Incorrectos");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Ingrese sus credenciales");
-        }
-    }
+    
 }

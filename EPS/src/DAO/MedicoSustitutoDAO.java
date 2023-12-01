@@ -5,9 +5,6 @@
 package DAO;
 
 import Conexion.ConexionBD;
-import Modelo.Horario;
-import Modelo.Medico;
-import Modelo.MedicoHorario;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -15,38 +12,37 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import Modelo.MedicoSustituto;
 
 /**
  *
  * @author 57302
  */
-public class MedicoHorarioDAO implements DaoInterfaceMedicoHorario {
+public class MedicoSustitutoDAO implements DaoInterfaceMedicoSustituto{
     ConexionBD conexion = new ConexionBD();
     ResultSet rs=null;
     
     @Override
-    public void crear(MedicoHorario medicoh) {
+    public void crear(MedicoSustituto medicoSustituto) {
+       
         
         try{
             Connection conectar = conexion.Conexion();
-            PreparedStatement insertar = conectar.prepareStatement("insert into medico_horario values (?,?)");
+            PreparedStatement insertar = conectar.prepareStatement("insert into medico_sustituto values (?,?,?,?)");
             
             
-            ResultSet probar = insertar.executeQuery("select * from medico_horario where licencia_medica like '"+medicoh.getMedico().getLicencia_medica()+"' and id_horario like "+medicoh.getHorario().getId_horario());
+            ResultSet probar = insertar.executeQuery("select * from medico_sustituto where licencia_medica like '"+medicoSustituto.getLicencia_medica()+"'");
             
             if(probar.next()){
                 JOptionPane.showMessageDialog(null, "Medico ya registrado");
-               
             }else{
-            insertar.setString(1,medicoh.getMedico().getLicencia_medica());
-            insertar.setInt(2,medicoh.getHorario().getId_horario());
+            insertar.setString(1,medicoSustituto.getLicencia_medica());
+            insertar.setString(2,medicoSustituto.getNombre());
+            insertar.setString(3,medicoSustituto.getDireccion());
+            insertar.setDate(4,Date.valueOf(medicoSustituto.getFecha_nac().toString()));
             insertar.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro exitoso");
-           
             }
-            
-           
-            
         }catch(SQLException e){
             System.out.println("error:"+e);
         }
@@ -55,32 +51,32 @@ public class MedicoHorarioDAO implements DaoInterfaceMedicoHorario {
        
     }
     @Override
-    public void buscar(MedicoHorario medicoh) {
+    public void buscar(MedicoSustituto medicoSustituto) {
         try{
             Connection conectar = conexion.Conexion();
-            PreparedStatement buscar = conectar.prepareStatement("select * from medico_horario where licencia_medica= ? and id_horario= ?");
-            buscar.setString(1, medicoh.getMedico().getLicencia_medica());
-            buscar.setInt(2, medicoh.getHorario().getId_horario());
+            PreparedStatement buscar = conectar.prepareStatement("select * from medico_sustituto where licencia_medica= ?");
+            buscar.setString(1, medicoSustituto.getLicencia_medica());
             ResultSet consulta = buscar.executeQuery();
             
             if(consulta.next()){
-              medicoh.getMedico().setLicencia_medica(consulta.getString("licencia_medica"));
-              medicoh.getHorario().setId_horario(consulta.getInt("id_horario"));
+              medicoSustituto.setLicencia_medica(consulta.getString("licencia_medica"));
+              medicoSustituto.setNombre(consulta.getString("nombre"));
+              medicoSustituto.setDireccion(consulta.getString("direccion"));
+              medicoSustituto.setFecha_nac(consulta.getDate("fecha_nac"));
               JOptionPane.showMessageDialog(null, "Registro encontrado");
             }else{
-                
                 JOptionPane.showMessageDialog(null, "No se encuentra registrado");
             }
             
             
         }catch(SQLException e){
-        
+            System.out.println("error:"+e);
         }
     }
     @Override
-    public ArrayList<MedicoHorario> MostrarTodo() {
-            ArrayList<MedicoHorario> lista1 = new ArrayList<>();
-             String sql = "Select * from medico_horario";
+    public ArrayList<MedicoSustituto> MostrarTodo() {
+            ArrayList<MedicoSustituto> lista1 = new ArrayList<>();
+             String sql = "Select * from medico_sustituto";
            try {
 
                Connection conectar = conexion.Conexion();
@@ -89,10 +85,12 @@ public class MedicoHorarioDAO implements DaoInterfaceMedicoHorario {
                 rs = insertar.executeQuery(sql);
 
                 while (rs.next()) {
-                     MedicoHorario medicoh1 = new MedicoHorario(
-                       new Medico(rs.getString("licencia_medica"),null,null,null),
-                       new Horario(rs.getInt("id_horario"),null,null,null));
-                    lista1.add(medicoh1);
+                     MedicoSustituto medicoSustituto = new MedicoSustituto(
+                       rs.getString("licencia_medica"),
+                       rs.getString("nombre"),
+                       rs.getString("direccion"),
+                       rs.getDate("fecha_nac"));
+                    lista1.add(medicoSustituto);
                 }
 
                 rs.close();
@@ -105,15 +103,15 @@ public class MedicoHorarioDAO implements DaoInterfaceMedicoHorario {
             return lista1;
         }
     @Override
-    public void eliminar(MedicoHorario medicoh) {
-        String sql="delete from medico_horario where licencia_medica ="+medicoh.getMedico().getLicencia_medica();
+    public void eliminar(MedicoSustituto medicoSustituto) {
+        String sql="delete from medico_sustituto where licencia_medica ="+medicoSustituto.getLicencia_medica();
         try{
             Connection conectar = conexion.Conexion();
                PreparedStatement borrar = conectar.prepareStatement(sql);        
                 borrar.executeUpdate();
             
-        }catch(Exception e){
-        
+        }catch(SQLException ex){
+            System.out.println("Error" + ex.getMessage());
         }
     }
 }

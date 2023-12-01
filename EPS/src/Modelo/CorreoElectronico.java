@@ -20,19 +20,19 @@ public class CorreoElectronico {
         this.paciente = paciente;
     }
 
-    public Paciente getMedico() {
+    public Paciente getPaciente() {
         return paciente;
     }
 
-    public void setMedico(Paciente paciente) {
+    public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 
-    public String getTelefono() {
+    public String getCorreoElectronico() {
         return correo_electronico;
     }
 
-    public void setTelefono(String correo_electronico) {
+    public void setCorreoElectronico(String correo_electronico) {
         this.correo_electronico = correo_electronico;
     }
 }
