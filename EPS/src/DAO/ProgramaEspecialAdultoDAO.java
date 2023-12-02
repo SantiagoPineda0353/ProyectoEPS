@@ -6,35 +6,38 @@ package DAO;
 
 import Conexion.ConexionBD;
 import Modelo.Paciente;
-import Modelo.TelefonoPaciente;
+import Modelo.ProgramaEspecial;
+import Modelo.ProgramaEspecialAdulto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import java.lang.reflect.Field; 
 /**
  *
  * @author user
  */
-public class TelefonoPacienteDAO implements DaoInterfaceTelefonoPaciente{
+public class ProgramaEspecialAdultoDAO implements DaoInterfaceProgramaEspecialAdulto {
 
+    
+    
       ConexionBD conexion = new ConexionBD();
     ResultSet rs=null;
     
-    
-    
     @Override
-    public void crear(TelefonoPaciente TelPac) {
+    public void crear(ProgramaEspecialAdulto ProEspAdu) {
+
         
-         try{
+           try{
             Connection conectar = conexion.Conexion();
-            PreparedStatement insertar = conectar.prepareStatement("INSERT INTO telefono_paciente VALUES (?,?)");
+            PreparedStatement insertar = conectar.prepareStatement("INSERT INTO programa_especial_adulto VALUES (?,?,?)");
             
             
-            insertar.setInt(1,TelPac.getPaciente().getId_paciente());
-            insertar.setInt(2,TelPac.getTelefono());
+            insertar.setInt(1,ProEspAdu.getPaciente().getId_paciente());
+            insertar.setInt(2,ProEspAdu.getPrograma().getId_programa());
+            insertar.setString(3,ProEspAdu.getAsistencia());
         
         
             insertar.executeUpdate();
@@ -47,10 +50,10 @@ public class TelefonoPacienteDAO implements DaoInterfaceTelefonoPaciente{
     }
 
     @Override
-    public void eliminar(TelefonoPaciente TelPac) {
-       
-        String sql="delete from telefono_paciente where id_paciente ="+String.valueOf(TelPac.getPaciente().getId_paciente())+
-                " and telefono = "+String.valueOf(TelPac.getTelefono());
+    public void eliminar(ProgramaEspecialAdulto ProEspAdu) {
+        
+         String sql="delete from programa_especial_adulto where id_paciente = "+String.valueOf(ProEspAdu.getPaciente().getId_paciente())+
+                " and id_programa = "+String.valueOf(ProEspAdu.getPrograma().getId_programa());
         try{
             Connection conectar = conexion.Conexion();
                PreparedStatement borrar = conectar.prepareStatement(sql);        
@@ -62,11 +65,11 @@ public class TelefonoPacienteDAO implements DaoInterfaceTelefonoPaciente{
     }
 
     @Override
-    public ArrayList<TelefonoPaciente> MostrarTodo(Paciente pac) {
-       
-        
-        ArrayList<TelefonoPaciente> lista1 = new ArrayList<>();
-        String sql = "Select * from telefono_paciente where id_paciente = "+String.valueOf(pac.getId_paciente());
+    public ArrayList<ProgramaEspecialAdulto> MostrarTodo(Paciente pac) {
+      
+          
+        ArrayList<ProgramaEspecialAdulto> lista1 = new ArrayList<>();
+        String sql = "Select * from programa_especial_adulto where id_paciente = "+String.valueOf(pac.getId_paciente());
        try {
            
            Connection conectar = conexion.Conexion();
@@ -75,16 +78,17 @@ public class TelefonoPacienteDAO implements DaoInterfaceTelefonoPaciente{
             rs = insertar.executeQuery(sql);
         
             while (rs.next()) {
-                 TelefonoPaciente TelPac = new TelefonoPaciente(                
-                 rs.getInt("telefono"),
-                 new Paciente (rs.getInt("id_paciente")));
-                 lista1.add(TelPac);
+                 ProgramaEspecialAdulto ProEspAdu = new ProgramaEspecialAdulto(                
+                 new Paciente (rs.getInt("id_paciente")),
+                 new ProgramaEspecial (rs.getInt("id_programa")),
+                 rs.getString("asistencia"));
+                 lista1.add(ProEspAdu);
             }
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }
         return lista1;
-    }
         
     }
     
+}

@@ -11,12 +11,22 @@ package Modelo;
 public class ProgramaEspecialAdulto {
     Paciente paciente;
     ProgramaEspecial programa;
-    boolean asistencia;
+    String asistencia;
 
     public ProgramaEspecialAdulto() {
     }
 
-    public ProgramaEspecialAdulto(Paciente paciente, ProgramaEspecial programa, boolean asistencia) {
+    public String getAsistencia() {
+        return asistencia;
+    }
+
+    public void setAsistencia(String asistencia) {
+        this.asistencia = asistencia;
+    }
+
+ 
+
+    public ProgramaEspecialAdulto(Paciente paciente, ProgramaEspecial programa, String asistencia) {
         this.paciente = paciente;
         this.programa = programa;
         this.asistencia = asistencia;
@@ -38,13 +48,7 @@ public class ProgramaEspecialAdulto {
         this.programa = programa;
     }
 
-    public boolean isAsistencia() {
-        return asistencia;
-    }
-
-    public void setAsistencia(boolean asistencia) {
-        this.asistencia = asistencia;
-    }
+    
     
     
 }

@@ -26,6 +26,9 @@ public class CitaDAO implements DaoInterfaceCita{
     ResultSet rs=null;
     
     
+    
+    
+    
     @Override
     public void crear(Cita cita){
             try{
@@ -114,6 +117,24 @@ public class CitaDAO implements DaoInterfaceCita{
             
         }catch(Exception e){
             System.out.println("Error" + e.getMessage());
+        }
+    }
+    
+    @Override
+    public void actualizar(Cita cita){
+    
+        String sql = "update cita set diagnostico = ?, fecha_hora  = ? where id_cita = ?";
+       
+        try{
+            Connection conectar = conexion.Conexion();
+            PreparedStatement insertar = conectar.prepareStatement(sql);
+            insertar.setString(1,cita.getDiagnostico());
+            insertar.setString(2,cita.getFecha_hora().toString());
+            insertar.setInt(3,cita.getId_cita());
+            insertar.executeUpdate();
+            
+        }catch(SQLException e){
+            System.out.println("Error actualizar cita"+e);
         }
     }
 }

@@ -19,6 +19,10 @@ public class ProgramaEspecial {
         this.nombre = nombre;
     }
 
+    public ProgramaEspecial(int id_programa) {
+        this.id_programa = id_programa;
+    }
+
     public ProgramaEspecial(int id_programa, String nombre) {
         this.id_programa = id_programa;
         this.nombre = nombre;

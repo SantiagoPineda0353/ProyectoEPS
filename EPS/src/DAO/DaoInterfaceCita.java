@@ -15,5 +15,6 @@ public interface DaoInterfaceCita {
     public void crear(Cita cita);
     public void eliminar (Cita cita);
     public void buscar (Cita cita);
+    public void actualizar (Cita cita);
     public ArrayList<Cita> MostrarTodo();
 }
