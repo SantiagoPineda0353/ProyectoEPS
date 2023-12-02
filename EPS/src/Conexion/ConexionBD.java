@@ -11,9 +11,9 @@ public class ConexionBD{
 
     Connection con;
 
-    String URL = "jdbc:postgresql://localhost:5432/eps";
+    String URL = "jdbc:postgresql://localhost:5432/eps"; //Averiguar host, puede ser en el psql shell
     String USERNAME = "postgres";
-    String PASSWORD = "admin";
+    String PASSWORD = "123456"; //Contraseña asignada en la instalacion
 
     public Connection Conexion() {
       

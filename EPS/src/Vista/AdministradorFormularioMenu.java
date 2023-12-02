@@ -69,26 +69,14 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
         menu_administrador_pacinetemayor = new javax.swing.JMenuItem();
         menu_administrador_registromedico = new javax.swing.JMenuItem();
         menu_administrador_registrocita = new javax.swing.JMenuItem();
-        menu_RegistroCentroCosto = new javax.swing.JMenuItem();
-        menu_gestion_empleado = new javax.swing.JMenuItem();
-        menu_gestion_articulos1 = new javax.swing.JMenuItem();
-        menu_gestion_compras = new javax.swing.JMenuItem();
-        menu_gestion_proveedor = new javax.swing.JMenuItem();
-        menu_gestion_centrodecostos = new javax.swing.JMenuItem();
+        menu_administrador_registroexamen = new javax.swing.JMenuItem();
+        menu_administrador_registroexamen1 = new javax.swing.JMenuItem();
         menu_Asignar = new javax.swing.JMenu();
         menu_Asignar_Activo = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menu_Consultar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        menu_Translado = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        menu_Devolucion = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        menu_Baja_Activos = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        menu_salir = new javax.swing.JMenuItem();
+        menu_salir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,7 +104,7 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
         menu_CentroDeCosto.add(menu_administrador_pacinetemayor);
 
         menu_administrador_registromedico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_administrador_registromedico.setText("Registro Medico");
+        menu_administrador_registromedico.setText("Medico");
         menu_administrador_registromedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menu_administrador_registromedicoActionPerformed(evt);
@@ -125,7 +113,7 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
         menu_CentroDeCosto.add(menu_administrador_registromedico);
 
         menu_administrador_registrocita.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_administrador_registrocita.setText("Registro cita");
+        menu_administrador_registrocita.setText("Cita");
         menu_administrador_registrocita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menu_administrador_registrocitaActionPerformed(evt);
@@ -133,62 +121,37 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
         });
         menu_CentroDeCosto.add(menu_administrador_registrocita);
 
-        menu_RegistroCentroCosto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_RegistroCentroCosto.addActionListener(new java.awt.event.ActionListener() {
+        menu_administrador_registroexamen.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        menu_administrador_registroexamen.setText("Examen");
+        menu_administrador_registroexamen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_RegistroCentroCostoActionPerformed(evt);
+                menu_administrador_registroexamenActionPerformed(evt);
             }
         });
-        menu_CentroDeCosto.add(menu_RegistroCentroCosto);
+        menu_CentroDeCosto.add(menu_administrador_registroexamen);
 
-        menu_gestion_empleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_gestion_empleado.addActionListener(new java.awt.event.ActionListener() {
+        menu_administrador_registroexamen1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        menu_administrador_registroexamen1.setText("Programa Especial");
+        menu_administrador_registroexamen1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_gestion_empleadoActionPerformed(evt);
+                menu_administrador_registroexamen1ActionPerformed(evt);
             }
         });
-        menu_CentroDeCosto.add(menu_gestion_empleado);
-
-        menu_gestion_articulos1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_gestion_articulos1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_gestion_articulos1ActionPerformed(evt);
-            }
-        });
-        menu_CentroDeCosto.add(menu_gestion_articulos1);
-
-        menu_gestion_compras.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_gestion_compras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_gestion_comprasActionPerformed(evt);
-            }
-        });
-        menu_CentroDeCosto.add(menu_gestion_compras);
-
-        menu_gestion_proveedor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_gestion_proveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_gestion_proveedorActionPerformed(evt);
-            }
-        });
-        menu_CentroDeCosto.add(menu_gestion_proveedor);
-
-        menu_gestion_centrodecostos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_gestion_centrodecostos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_gestion_centrodecostosActionPerformed(evt);
-            }
-        });
-        menu_CentroDeCosto.add(menu_gestion_centrodecostos);
+        menu_CentroDeCosto.add(menu_administrador_registroexamen1);
 
         jMenuBar1.add(menu_CentroDeCosto);
 
         menu_Asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/producto - copia.png"))); // NOI18N
-        menu_Asignar.setText("Asignar");
+        menu_Asignar.setText("Ver");
         menu_Asignar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         menu_Asignar_Activo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         menu_Asignar_Activo.setText("Activo-Empleado");
+        menu_Asignar_Activo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_Asignar_ActivoActionPerformed(evt);
+            }
+        });
         menu_Asignar.add(menu_Asignar_Activo);
 
         jMenuBar1.add(menu_Asignar);
@@ -209,64 +172,14 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/categorias - copia.png"))); // NOI18N
-        jMenu2.setText("Translado");
+        jMenu2.setText("Perfil");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-
-        menu_Translado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_Translado.setText("Translado-Activos");
-        menu_Translado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_TransladoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(menu_Translado);
-
         jMenuBar1.add(jMenu2);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/ventas - copia (2).png"))); // NOI18N
-        jMenu5.setText("Devolucion");
-        jMenu5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-
-        menu_Devolucion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_Devolucion.setText("Devolucion de Activos");
-        jMenu5.add(menu_Devolucion);
-
-        jMenuBar1.add(jMenu5);
-
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/reportes.png"))); // NOI18N
-        jMenu7.setText("Baja");
-        jMenu7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-
-        menu_Baja_Activos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_Baja_Activos.setText("Baja de Activo");
-        jMenu7.add(menu_Baja_Activos);
-
-        jMenuBar1.add(jMenu7);
-
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/cliente - copia (2).png"))); // NOI18N
-        jMenu8.setText("Empleado-Centro");
-        jMenu8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-
-        jMenuItem11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jMenuItem11.setText("Gestionar Empleados");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
-            }
-        });
-        jMenu8.add(jMenuItem11);
-
-        jMenuBar1.add(jMenu8);
-
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/cerrar-sesion - copia (2).png"))); // NOI18N
-        jMenu6.setText("Salir");
-        jMenu6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-
-        menu_salir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_salir.setText("Salir ");
-        jMenu6.add(menu_salir);
-
-        jMenuBar1.add(jMenu6);
+        menu_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/cerrar-sesion - copia (2).png"))); // NOI18N
+        menu_salir.setText("Salir");
+        menu_salir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuBar1.add(menu_salir);
 
         setJMenuBar(jMenuBar1);
 
@@ -276,10 +189,6 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
     private void menu_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_ConsultarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menu_ConsultarActionPerformed
-
-    private void menu_TransladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_TransladoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu_TransladoActionPerformed
 
     private void menu_Administrador_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Administrador_pacienteActionPerformed
        
@@ -294,11 +203,6 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
     
     }//GEN-LAST:event_menu_administrador_pacinetemayorActionPerformed
 
-    private void menu_RegistroCentroCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_RegistroCentroCostoActionPerformed
-    
-       
-    }//GEN-LAST:event_menu_RegistroCentroCostoActionPerformed
-
     private void menu_administrador_registromedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_administrador_registromedicoActionPerformed
       
         
@@ -307,29 +211,17 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
       
     }//GEN-LAST:event_menu_administrador_registromedicoActionPerformed
 
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
-
-    private void menu_gestion_empleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_gestion_empleadoActionPerformed
-       
-    }//GEN-LAST:event_menu_gestion_empleadoActionPerformed
-
-    private void menu_gestion_articulos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_gestion_articulos1ActionPerformed
+    private void menu_Asignar_ActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Asignar_ActivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_menu_gestion_articulos1ActionPerformed
+    }//GEN-LAST:event_menu_Asignar_ActivoActionPerformed
 
-    private void menu_gestion_comprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_gestion_comprasActionPerformed
+    private void menu_administrador_registroexamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_administrador_registroexamenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_menu_gestion_comprasActionPerformed
+    }//GEN-LAST:event_menu_administrador_registroexamenActionPerformed
 
-    private void menu_gestion_proveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_gestion_proveedorActionPerformed
+    private void menu_administrador_registroexamen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_administrador_registroexamen1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_menu_gestion_proveedorActionPerformed
-
-    private void menu_gestion_centrodecostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_gestion_centrodecostosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu_gestion_centrodecostosActionPerformed
+    }//GEN-LAST:event_menu_administrador_registroexamen1ActionPerformed
 
     /**
      * @param args the command line argume nts
@@ -339,29 +231,17 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem menu_Administrador_paciente;
     private javax.swing.JMenu menu_Asignar;
     private javax.swing.JMenuItem menu_Asignar_Activo;
-    private javax.swing.JMenuItem menu_Baja_Activos;
     private javax.swing.JMenu menu_CentroDeCosto;
     private javax.swing.JMenuItem menu_Consultar;
-    private javax.swing.JMenuItem menu_Devolucion;
-    private javax.swing.JMenuItem menu_RegistroCentroCosto;
-    private javax.swing.JMenuItem menu_Translado;
     private javax.swing.JMenuItem menu_administrador_pacinetemayor;
     private javax.swing.JMenuItem menu_administrador_registrocita;
+    private javax.swing.JMenuItem menu_administrador_registroexamen;
+    private javax.swing.JMenuItem menu_administrador_registroexamen1;
     private javax.swing.JMenuItem menu_administrador_registromedico;
-    private javax.swing.JMenuItem menu_gestion_articulos1;
-    private javax.swing.JMenuItem menu_gestion_centrodecostos;
-    private javax.swing.JMenuItem menu_gestion_compras;
-    private javax.swing.JMenuItem menu_gestion_empleado;
-    private javax.swing.JMenuItem menu_gestion_proveedor;
-    private javax.swing.JMenuItem menu_salir;
+    private javax.swing.JMenu menu_salir;
     // End of variables declaration//GEN-END:variables
 }

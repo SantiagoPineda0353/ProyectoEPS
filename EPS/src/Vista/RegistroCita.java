@@ -42,9 +42,6 @@ public class RegistroCita extends javax.swing.JInternalFrame {
         return txt_citasede;
     }
 
-    public JTextField getTxt_citatelefono() {
-        return txt_citatelefono;
-    }
 
     public JTextField getTxt_diagnosticocita() {
         return txt_diagnosticocita;
