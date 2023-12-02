@@ -20,13 +20,20 @@ public class Medico {
     public Medico() {
     }
 
+    public Medico(String licencia_medica) {
+        this.licencia_medica = licencia_medica;
+    }
+
+    
+
     public Medico(String licencia_medica, String nombre, String direccion, Date fecha_nac) {
         this.licencia_medica = licencia_medica;
         this.nombre = nombre;
         this.direccion = direccion;
         this.fecha_nac = fecha_nac;
     }
-    
+
+   
     
 
     public String getLicencia_medica() {

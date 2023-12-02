@@ -31,6 +31,10 @@ public class Cita {
         this.medico = medico;
     }
 
+    public Cita(int id_cita) {
+        this.id_cita = id_cita;
+    }
+
     public Cita(int id_cita, LocalDateTime fecha_hora, Paciente paciente, Modalidad modalidad, Sede sede, Medico medico) {
         this.id_cita = id_cita;
         this.fecha_hora = fecha_hora;

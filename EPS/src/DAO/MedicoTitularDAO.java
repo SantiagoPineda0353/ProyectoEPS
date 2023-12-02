@@ -120,7 +120,7 @@ public class MedicoTitularDAO implements DaoInterfaceMedicoTitular{
                 borrar.executeUpdate();
             
         }catch(Exception e){
-        
+         System.out.println("Error" + e.getMessage());
         }
     }
 }

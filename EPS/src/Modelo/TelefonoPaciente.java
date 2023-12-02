@@ -15,6 +15,14 @@ public class TelefonoPaciente {
     public TelefonoPaciente() {
     }
 
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
     public TelefonoPaciente(int telefono, Paciente paciente) {
         this.telefono = telefono;
         this.paciente = paciente;

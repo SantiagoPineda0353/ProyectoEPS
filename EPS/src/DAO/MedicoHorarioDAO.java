@@ -74,7 +74,7 @@ public class MedicoHorarioDAO implements DaoInterfaceMedicoHorario {
             
             
         }catch(SQLException e){
-        
+         System.out.println("Error" + e.getMessage());
         }
     }
     @Override
@@ -113,7 +113,7 @@ public class MedicoHorarioDAO implements DaoInterfaceMedicoHorario {
                 borrar.executeUpdate();
             
         }catch(Exception e){
-        
+         System.out.println("Error" + e.getMessage());
         }
     }
 }

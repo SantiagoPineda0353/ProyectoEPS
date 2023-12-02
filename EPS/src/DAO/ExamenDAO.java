@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -106,7 +106,7 @@ public class ExamenDAO implements DaoInterfaceExamen {
                 borrar.executeUpdate();
             
         }catch(Exception e){
-        
+            System.out.println("Error" + e.getMessage());
         }
     }
         

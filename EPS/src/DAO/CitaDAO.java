@@ -113,7 +113,7 @@ public class CitaDAO implements DaoInterfaceCita{
                 borrar.executeUpdate();
             
         }catch(Exception e){
-        
+            System.out.println("Error" + e.getMessage());
         }
     }
 }

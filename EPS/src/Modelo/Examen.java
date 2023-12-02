@@ -16,6 +16,10 @@ public class Examen {
     public Examen() {
     }
 
+    public Examen(int id_examen) {
+        this.id_examen = id_examen;
+    }
+
     public Examen(String nombre) {
         this.nombre = nombre;
     }

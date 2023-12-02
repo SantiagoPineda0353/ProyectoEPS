@@ -76,7 +76,7 @@ public class MedicoDAO implements DaoInterfaceMedico{
             
             
         }catch(SQLException e){
-        
+         System.out.println("Error" + e.getMessage());
         }
     }
     @Override
@@ -117,7 +117,7 @@ public class MedicoDAO implements DaoInterfaceMedico{
                 borrar.executeUpdate();
             
         }catch(Exception e){
-        
+         System.out.println("Error" + e.getMessage());
         }
     }
 }

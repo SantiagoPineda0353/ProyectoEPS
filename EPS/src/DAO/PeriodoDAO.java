@@ -66,7 +66,7 @@ public class PeriodoDAO implements DaoInterfacePeriodo{
         
             while (rs.next()) {
                  Periodo periodo = new Periodo(
-                 rs.getDate("fecha_de_ingreso"),rs.getDate("fecha_de_salida"),new MedicoSustituto(rs.getString("id_paciente"),null,null,null));
+                 rs.getDate("fecha_ingreso"),rs.getDate("fecha_salida"),new MedicoSustituto(rs.getString("id_paciente"),null,null,null));
                  lista1.add(periodo);
             }
         } catch(SQLException ex){

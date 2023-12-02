@@ -15,7 +15,7 @@ import javax.swing.JTextField;
  *
  * @author ediso
  */
-public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFrame {
+public class AdministradorVerMedico extends javax.swing.JInternalFrame {
 
     public JLabel getjLabel_wallpaper() {
         return jLabel_wallpaper;
@@ -24,7 +24,7 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
     
 
     
-    public AdministradorVerPacientesRecibidos() {
+    public AdministradorVerMedico() {
         initComponents();
         this.setSize(new Dimension(900, 500));
         this.setTitle("Examenes Solicitados");
@@ -56,8 +56,6 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
         jPanel2 = new javax.swing.JPanel();
         jButton_actualizar = new javax.swing.JButton();
         jButton_eliminar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_actualizarpacientenombre = new javax.swing.JTextField();
@@ -69,7 +67,6 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
         txt_actualizarpacientenacimiento = new javax.swing.JTextField();
         txt_actualizarpacienteestrato = new javax.swing.JTextField();
         txt_actualizarpacienteidentificacion = new javax.swing.JTextField();
-        txt_actualizarpacientetelefono = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txt_actualizarpacientedireccion = new javax.swing.JTextField();
         txt_actualizarpacienteprogramaespecial = new javax.swing.JTextField();
@@ -77,7 +74,6 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
         jLabel10 = new javax.swing.JLabel();
         txt_actualizarpacientelugarnacimeinto = new javax.swing.JTextField();
         txt_actualizarpacientecorreo = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         txt_actualizarpacientesede1 = new javax.swing.JTextField();
         jLabel_wallpaper = new javax.swing.JLabel();
 
@@ -87,7 +83,7 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Pacientes Recibidos");
+        jLabel1.setText("Medicos");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -135,17 +131,6 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
         });
         jPanel2.add(jButton_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 90, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urgencias", "Medicina General", "Especialidades" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 110, -1));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
-        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 130, 270));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -163,27 +148,27 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Telefono");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 90, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 90, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Direccion");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Lugar de nacimiento");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, -1));
+        jLabel5.setText("Hora Inicio");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 90, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Fecha de nacimiento");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 90, -1));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 90, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("Estrato");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 90, -1));
+        jLabel7.setText("Fecha Ingreso");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 90, -1));
 
         txt_actualizarpacientenacimiento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPanel3.add(txt_actualizarpacientenacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 170, -1));
@@ -194,24 +179,21 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
         txt_actualizarpacienteidentificacion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPanel3.add(txt_actualizarpacienteidentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 170, -1));
 
-        txt_actualizarpacientetelefono.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel3.add(txt_actualizarpacientetelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 70, 170, -1));
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("Identificacion");
+        jLabel8.setText("Licencia Medica");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, -1));
 
         txt_actualizarpacientedireccion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPanel3.add(txt_actualizarpacientedireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 170, -1));
 
         txt_actualizarpacienteprogramaespecial.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel3.add(txt_actualizarpacienteprogramaespecial, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 170, -1));
+        jPanel3.add(txt_actualizarpacienteprogramaespecial, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 170, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("Programa Especial");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 140, -1));
+        jLabel9.setText("Hora Salida");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 140, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -223,11 +205,6 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
 
         txt_actualizarpacientecorreo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPanel3.add(txt_actualizarpacientecorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 170, -1));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel11.setText("Sede");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, -1));
 
         txt_actualizarpacientesede1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPanel3.add(txt_actualizarpacientesede1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 170, -1));
@@ -246,19 +223,12 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
      
     }//GEN-LAST:event_jButton_eliminarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_actualizar;
     private javax.swing.JButton jButton_eliminar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -282,7 +252,6 @@ public class AdministradorVerPacientesRecibidos extends javax.swing.JInternalFra
     private javax.swing.JTextField txt_actualizarpacientenombre;
     private javax.swing.JTextField txt_actualizarpacienteprogramaespecial;
     private javax.swing.JTextField txt_actualizarpacientesede1;
-    private javax.swing.JTextField txt_actualizarpacientetelefono;
     // End of variables declaration//GEN-END:variables
 
     /*

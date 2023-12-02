@@ -79,7 +79,7 @@ public class HorarioDAO implements DaoInterfaceHorario{
             
             
         }catch(SQLException e){
-        
+         System.out.println("Error" + e.getMessage());
         }
     }
     
@@ -120,7 +120,7 @@ public class HorarioDAO implements DaoInterfaceHorario{
                 borrar.executeUpdate();
             
         }catch(Exception e){
-        
+            System.out.println("Error" + e.getMessage());
         }
     }
 }

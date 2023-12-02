@@ -58,7 +58,7 @@ public class CorreoElectronicoDAO implements DaoInterfaceCorreoElectronico {
                 borrar.executeUpdate();
             
         }catch(Exception e){
-        
+            System.out.println("Error" + e.getMessage());
         }     
     }
 

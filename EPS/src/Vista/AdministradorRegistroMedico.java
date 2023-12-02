@@ -81,6 +81,7 @@ public class AdministradorRegistroMedico extends javax.swing.JInternalFrame {
         botonGuardarmedico = new javax.swing.JButton();
         WallPaper = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
         setIconifiable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -144,6 +145,7 @@ public class AdministradorRegistroMedico extends javax.swing.JInternalFrame {
         });
         getContentPane().add(botonGuardarmedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
 
+        WallPaper.setBackground(new java.awt.Color(153, 153, 153));
         WallPaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/3409297.jpg"))); // NOI18N
         getContentPane().add(WallPaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 300));
 
