@@ -33,11 +33,11 @@ public class PacienteDAO implements DaoInterfacePaciente{
             PreparedStatement insertar = conectar.prepareStatement("insert into paciente values (?,?,?,?,?,?,?)");
             
             
-            ResultSet probar = insertar.executeQuery("select * from paciente where id_paciente = "+paciente.getId_paciente());
+           // ResultSet probar = insertar.executeQuery("select * from paciente where id_paciente = "+paciente.getId_paciente());
             
-            if(probar.next()){
-                JOptionPane.showMessageDialog(null, "Paciente ya registrado");
-            }else{
+            //if(probar.next()){
+            //    JOptionPane.showMessageDialog(null, "Paciente ya registrado");
+            //}else{
             insertar.setInt(1,paciente.getId_paciente());
             insertar.setString(2,paciente.getNombre());
             insertar.setString(3,paciente.getDireccion());
@@ -45,9 +45,12 @@ public class PacienteDAO implements DaoInterfacePaciente{
             insertar.setString(5,paciente.getLugar_nac());
             insertar.setInt(6,paciente.getEstrato().getId_estrato());
             insertar.setInt(7,paciente.getSede().getId_sede());
-            insertar.executeUpdate();
+            int filasAfectadas=insertar.executeUpdate();
+            if (filasAfectadas > 0) {
             JOptionPane.showMessageDialog(null, "Registro exitoso");
-            }  
+            } else {
+            JOptionPane.showMessageDialog(null, "Error al registrar el paciente");
+        } 
         }catch(SQLException e){
             System.out.println("error:"+e);
         }

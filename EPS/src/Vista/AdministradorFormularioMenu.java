@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.ControladorPacienteAdmin;
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 import javax.swing.JMenu;
@@ -191,8 +192,10 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_ConsultarActionPerformed
 
     private void menu_Administrador_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Administrador_pacienteActionPerformed
-       
-
+        AdministradorRegistropaciente a=new AdministradorRegistropaciente();
+        ControladorPacienteAdmin cPaciente= new ControladorPacienteAdmin(a);
+        a.setVisible(true);
+        JDesktopPAne_menu.add(a);
     }//GEN-LAST:event_menu_Administrador_pacienteActionPerformed
 
     private void menu_administrador_registrocitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_administrador_registrocitaActionPerformed
@@ -232,7 +235,7 @@ public class AdministradorFormularioMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem menu_Administrador_paciente;
+    public javax.swing.JMenuItem menu_Administrador_paciente;
     private javax.swing.JMenu menu_Asignar;
     private javax.swing.JMenuItem menu_Asignar_Activo;
     private javax.swing.JMenu menu_CentroDeCosto;

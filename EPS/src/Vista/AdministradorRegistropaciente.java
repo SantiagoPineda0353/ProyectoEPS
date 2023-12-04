@@ -58,8 +58,7 @@ public class AdministradorRegistropaciente extends javax.swing.JInternalFrame {
 
     public AdministradorRegistropaciente() {
         initComponents();
-        this.setSize(new Dimension(400, 300));
-        this.setTitle("Nuevo Medico");
+        this.setTitle("Crear Paciente");
     }
 
     /**
@@ -106,6 +105,12 @@ public class AdministradorRegistropaciente extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        txt_Nombrepaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_NombrepacienteActionPerformed(evt);
+            }
+        });
         getContentPane().add(txt_Nombrepaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 130, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,6 +144,12 @@ public class AdministradorRegistropaciente extends javax.swing.JInternalFrame {
         getContentPane().add(txt_lugardenacimientopaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 130, -1));
         getContentPane().add(txt_fechanacimientopaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 130, -1));
         getContentPane().add(txt_identficacionpaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, -1));
+
+        txt_estratopaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_estratopacienteActionPerformed(evt);
+            }
+        });
         getContentPane().add(txt_estratopaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 130, -1));
         getContentPane().add(txt_telefonopaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 130, -1));
         getContentPane().add(txt_sedepaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 130, -1));
@@ -172,10 +183,18 @@ public class AdministradorRegistropaciente extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_botonGuardarpacienteActionPerformed
 
+    private void txt_NombrepacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NombrepacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_NombrepacienteActionPerformed
+
+    private void txt_estratopacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_estratopacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_estratopacienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel WallPaper;
-    private javax.swing.JButton botonGuardarpaciente;
+    public javax.swing.JButton botonGuardarpaciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -187,14 +206,14 @@ public class AdministradorRegistropaciente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField txt_Nombrepaciente;
-    private javax.swing.JTextField txt_correoelectronico;
-    private javax.swing.JTextField txt_direccionpaciente;
-    private javax.swing.JTextField txt_estratopaciente;
-    private javax.swing.JTextField txt_fechanacimientopaciente;
-    private javax.swing.JTextField txt_identficacionpaciente;
-    private javax.swing.JTextField txt_lugardenacimientopaciente;
-    private javax.swing.JTextField txt_sedepaciente;
-    private javax.swing.JTextField txt_telefonopaciente;
+    public javax.swing.JTextField txt_Nombrepaciente;
+    public javax.swing.JTextField txt_correoelectronico;
+    public javax.swing.JTextField txt_direccionpaciente;
+    public javax.swing.JTextField txt_estratopaciente;
+    public javax.swing.JTextField txt_fechanacimientopaciente;
+    public javax.swing.JTextField txt_identficacionpaciente;
+    public javax.swing.JTextField txt_lugardenacimientopaciente;
+    public javax.swing.JTextField txt_sedepaciente;
+    public javax.swing.JTextField txt_telefonopaciente;
     // End of variables declaration//GEN-END:variables
 }
