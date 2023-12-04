@@ -1,7 +1,15 @@
 package Vista;
 
 
+import Conexion.ConexionBD;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -9,14 +17,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
  *
  * @author ediso
  */
-public class Actualizarpaciente_adminpaciente extends javax.swing.JInternalFrame {
+public final class AdministradorActualizarPaciente extends javax.swing.JInternalFrame {
 
+    public int identificacion;
     public JLabel getjLabel_wallpaper() {
         return jLabel_wallpaper;
     }
@@ -24,10 +34,13 @@ public class Actualizarpaciente_adminpaciente extends javax.swing.JInternalFrame
     
 
     
-    public Actualizarpaciente_adminpaciente() {
+    public AdministradorActualizarPaciente() {
         initComponents();
         this.setSize(new Dimension(900, 500));
         this.setTitle("Gestionar Pacientes");
+        CargarTablaPaciente();
+        
+        
         //Cargar tabla
         
         
@@ -56,7 +69,7 @@ public class Actualizarpaciente_adminpaciente extends javax.swing.JInternalFrame
         jPanel2 = new javax.swing.JPanel();
         jButton_actualizar = new javax.swing.JButton();
         jButton_eliminar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxMes = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_actualizarpacientenombre = new javax.swing.JTextField();
@@ -74,10 +87,10 @@ public class Actualizarpaciente_adminpaciente extends javax.swing.JInternalFrame
         txt_actualizarpacienteprogramaespecial = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txt_actualizarpacientelugarnacimeinto = new javax.swing.JTextField();
+        txt_actualizarpacientelugarnacimiento = new javax.swing.JTextField();
         txt_actualizarpacientecorreo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txt_actualizarpacientesede1 = new javax.swing.JTextField();
+        txt_actualizarpacientesede = new javax.swing.JTextField();
         jLabel_wallpaper = new javax.swing.JLabel();
 
         setClosable(true);
@@ -95,13 +108,13 @@ public class Actualizarpaciente_adminpaciente extends javax.swing.JInternalFrame
 
         jTable_paciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(jTable_paciente);
@@ -134,8 +147,8 @@ public class Actualizarpaciente_adminpaciente extends javax.swing.JInternalFrame
         });
         jPanel2.add(jButton_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 90, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
+        jPanel2.add(jComboBoxMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 130, 270));
 
@@ -209,8 +222,8 @@ public class Actualizarpaciente_adminpaciente extends javax.swing.JInternalFrame
         jLabel10.setText("Correo electronico");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 90, -1));
 
-        txt_actualizarpacientelugarnacimeinto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel3.add(txt_actualizarpacientelugarnacimeinto, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 170, -1));
+        txt_actualizarpacientelugarnacimiento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanel3.add(txt_actualizarpacientelugarnacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 170, -1));
 
         txt_actualizarpacientecorreo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPanel3.add(txt_actualizarpacientecorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 170, -1));
@@ -220,8 +233,8 @@ public class Actualizarpaciente_adminpaciente extends javax.swing.JInternalFrame
         jLabel11.setText("Sede");
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, -1));
 
-        txt_actualizarpacientesede1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel3.add(txt_actualizarpacientesede1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 170, -1));
+        txt_actualizarpacientesede.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanel3.add(txt_actualizarpacientesede, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 170, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 870, 130));
         getContentPane().add(jLabel_wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 470));
@@ -239,9 +252,9 @@ public class Actualizarpaciente_adminpaciente extends javax.swing.JInternalFrame
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_actualizar;
-    private javax.swing.JButton jButton_eliminar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JButton jButton_actualizar;
+    public javax.swing.JButton jButton_eliminar;
+    public javax.swing.JComboBox<String> jComboBoxMes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -259,23 +272,92 @@ public class Actualizarpaciente_adminpaciente extends javax.swing.JInternalFrame
     private javax.swing.JPanel jPanel3;
     public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable_paciente;
-    private javax.swing.JTextField txt_actualizarpacientecorreo;
-    private javax.swing.JTextField txt_actualizarpacientedireccion;
-    private javax.swing.JTextField txt_actualizarpacienteestrato;
-    private javax.swing.JTextField txt_actualizarpacienteidentificacion;
-    private javax.swing.JTextField txt_actualizarpacientelugarnacimeinto;
-    private javax.swing.JTextField txt_actualizarpacientenacimiento;
-    private javax.swing.JTextField txt_actualizarpacientenombre;
-    private javax.swing.JTextField txt_actualizarpacienteprogramaespecial;
-    private javax.swing.JTextField txt_actualizarpacientesede1;
-    private javax.swing.JTextField txt_actualizarpacientetelefono;
+    public javax.swing.JTextField txt_actualizarpacientecorreo;
+    public javax.swing.JTextField txt_actualizarpacientedireccion;
+    public javax.swing.JTextField txt_actualizarpacienteestrato;
+    public javax.swing.JTextField txt_actualizarpacienteidentificacion;
+    public javax.swing.JTextField txt_actualizarpacientelugarnacimiento;
+    public javax.swing.JTextField txt_actualizarpacientenacimiento;
+    public javax.swing.JTextField txt_actualizarpacientenombre;
+    public static javax.swing.JTextField txt_actualizarpacienteprogramaespecial;
+    public javax.swing.JTextField txt_actualizarpacientesede;
+    public javax.swing.JTextField txt_actualizarpacientetelefono;
     // End of variables declaration//GEN-END:variables
 
-    /*
-     * *****************************************************
-     * metodo para limpiar
-     * *****************************************************
-     */
+public void CargarTablaPaciente(){
+    Connection con=new ConexionBD().Conexion();
+    DefaultTableModel modelo = new DefaultTableModel();
+    String sql="select paciente.id_paciente, paciente.nombre, direccion, telefono, correo_electronico, fecha_nac, lugar_nac, id_estrato, sede.nombre, programa_especial.nombre from paciente,sede,telefono_paciente, correo_electronico,programa_especial, programa_especial_adulto where paciente.id_sede=sede.id_sede AND paciente.id_paciente=telefono_paciente.id_paciente AND paciente.id_paciente=programa_especial_adulto.id_paciente AND programa_especial_adulto.id_programa=programa_especial.id_programa AND paciente.id_paciente=correo_electronico.id_paciente;;";
+    Statement st;
+    try{
+        st= con.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        AdministradorActualizarPaciente.jTable_paciente = new JTable(modelo);
+        AdministradorActualizarPaciente.jScrollPane1.setViewportView(AdministradorActualizarPaciente.jTable_paciente);
+        
+        modelo.addColumn("Identificacion");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Direccion");
+        modelo.addColumn("Telefono(s)");
+        modelo.addColumn("Correo(s)");
+        modelo.addColumn("Fecha Nacimiento");
+        modelo.addColumn("Lugar Naciemiento");
+        modelo.addColumn("Estrato");
+        modelo.addColumn("Sede");
+        modelo.addColumn("Programa Especial");
+        
+        while(rs.next()){
+            Object fila[] = new Object [10];
+            
+            for(int i =0; i<10; i++){
+                fila [i]=rs.getObject(i+1);
+            }
+            modelo.addRow(fila);
+        }
+        con.close();
+        
+        
+    }catch(SQLException e){
+        JOptionPane.showMessageDialog(null, "No fue posible cargar los pacientes");
+    }
+    jTable_paciente.addMouseListener(new MouseAdapter(){
+        @Override
+        public void mouseClicked(MouseEvent e){
+            int fila_point = jTable_paciente.rowAtPoint(e.getPoint());
+            int columna_point=0;
+            
+            if(fila_point>-1){
+                identificacion= (int) modelo.getValueAt(fila_point, columna_point);
+                System.out.println(identificacion);
+                EnviarDatosPacienteSeleccionado(identificacion);
+            }
+        }
+    });
+    
+}
+private void EnviarDatosPacienteSeleccionado(int id){
+    try{
+        ConexionBD con=new ConexionBD();
+        PreparedStatement pst = con.Conexion().prepareStatement("select paciente.id_paciente AS identificacion, paciente.nombre, direccion, telefono, correo_electronico, fecha_nac, lugar_nac, id_estrato, sede.nombre, programa_especial.nombre from paciente,sede,telefono_paciente, correo_electronico,programa_especial, programa_especial_adulto where paciente.id_sede=sede.id_sede AND paciente.id_paciente=telefono_paciente.id_paciente AND paciente.id_paciente=programa_especial_adulto.id_paciente AND programa_especial_adulto.id_programa=programa_especial.id_programa AND paciente.id_paciente=correo_electronico.id_paciente AND paciente.id_paciente = "+id+";");
+        ResultSet rs = pst.executeQuery();
+        if(rs.next()){
+            txt_actualizarpacienteidentificacion.setText(rs.getString("paciente.id_paciente"));
+            txt_actualizarpacientenombre.setText(rs.getString("nombre"));
+            txt_actualizarpacientecorreo.setText(rs.getString("correo"));
+            txt_actualizarpacientedireccion.setText(rs.getString("direccion"));
+            txt_actualizarpacienteestrato.setText(rs.getString("id_estrato"));
+
+            txt_actualizarpacientelugarnacimiento.setText(rs.getString("lugar_nac"));
+            txt_actualizarpacientenacimiento.setText(rs.getString("fecha_nac"));
+            txt_actualizarpacienteprogramaespecial.setText(rs.getString("programa_especial"));
+            txt_actualizarpacientesede.setText(rs.getString("sede.nombre"));
+            txt_actualizarpacientetelefono.setText(rs.getString("telefono"));
+        }
+    }catch(SQLException e){
+        JOptionPane.showMessageDialog(null, "No se pudo llenar");
+    }
+}
+    
     
 
    

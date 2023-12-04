@@ -1,10 +1,17 @@
 package Vista;
 
 
+import Controlador.ControladorAdministrador;
+import Modelo.Administrador;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 
 /**
@@ -26,7 +33,7 @@ public class LoginEPS extends javax.swing.JFrame {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imag/ventas.png"));
         return retValue;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,6 +44,7 @@ public class LoginEPS extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -44,8 +52,6 @@ public class LoginEPS extends javax.swing.JFrame {
         txt_password = new javax.swing.JPasswordField();
         jButton_IniciarSesionAdministrador = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton_IniciarSesionPaciente = new javax.swing.JButton();
-        jButton_IniciarSesionMedico = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
@@ -56,6 +62,8 @@ public class LoginEPS extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setPreferredSize(new java.awt.Dimension(350, 500));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carrito1.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,6 +85,11 @@ public class LoginEPS extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(109, 109, 109)
+                    .addComponent(jLabel4)
+                    .addContainerGap(237, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,6 +99,11 @@ public class LoginEPS extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(117, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(324, Short.MAX_VALUE)
+                    .addComponent(jLabel4)
+                    .addGap(172, 172, 172)))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 500));
@@ -124,26 +142,6 @@ public class LoginEPS extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/user1.png"))); // NOI18N
 
-        jButton_IniciarSesionPaciente.setBackground(new java.awt.Color(51, 153, 255));
-        jButton_IniciarSesionPaciente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton_IniciarSesionPaciente.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_IniciarSesionPaciente.setText("Iniciar Sesión Como Paciente");
-        jButton_IniciarSesionPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_IniciarSesionPacienteActionPerformed(evt);
-            }
-        });
-
-        jButton_IniciarSesionMedico.setBackground(new java.awt.Color(51, 153, 255));
-        jButton_IniciarSesionMedico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton_IniciarSesionMedico.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_IniciarSesionMedico.setText("Iniciar Sesión Como Medico");
-        jButton_IniciarSesionMedico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_IniciarSesionMedicoActionPerformed(evt);
-            }
-        });
-
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/user2.png"))); // NOI18N
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/password.png"))); // NOI18N
@@ -152,36 +150,32 @@ public class LoginEPS extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel3)))
-                .addGap(15, 15, 15))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_IniciarSesionAdministrador)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton_IniciarSesionMedico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton_IniciarSesionPaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton_IniciarSesionAdministrador)
+                        .addGap(36, 36, 36))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(jLabel3)
-                .addGap(42, 42, 42)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
@@ -189,13 +183,9 @@ public class LoginEPS extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(38, 38, 38)
+                .addGap(46, 46, 46)
                 .addComponent(jButton_IniciarSesionAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jButton_IniciarSesionMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_IniciarSesionPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 38, Short.MAX_VALUE))
+                .addGap(0, 146, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 350, 500));
@@ -204,9 +194,7 @@ public class LoginEPS extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_IniciarSesionAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_IniciarSesionAdministradorActionPerformed
-        AdministradorFormularioMenu a=new AdministradorFormularioMenu();
-        a.setVisible(true);
-        this.dispose();
+            this.Login();
     }//GEN-LAST:event_jButton_IniciarSesionAdministradorActionPerformed
 
     private void txt_usuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyPressed
@@ -219,7 +207,7 @@ public class LoginEPS extends javax.swing.JFrame {
     private void txt_passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passwordKeyPressed
         //METODO U ACCION PARA QUE AL DAR ENTER INICIE SESION
         if (evt.getKeyCode() == evt.VK_ENTER) {
-            //this.Login();
+            this.Login();
         }
     }//GEN-LAST:event_txt_passwordKeyPressed
 
@@ -227,56 +215,16 @@ public class LoginEPS extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_usuarioActionPerformed
 
-    private void jButton_IniciarSesionPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_IniciarSesionPacienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_IniciarSesionPacienteActionPerformed
-
-    private void jButton_IniciarSesionMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_IniciarSesionMedicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_IniciarSesionMedicoActionPerformed
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginEPS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginEPS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginEPS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginEPS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginEPS().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_IniciarSesionAdministrador;
-    private javax.swing.JButton jButton_IniciarSesionMedico;
-    private javax.swing.JButton jButton_IniciarSesionPaciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -289,5 +237,21 @@ public class LoginEPS extends javax.swing.JFrame {
     /**
      * metodo Iniciar Sesion
      */
-    
+    private void Login(){
+        if(!txt_usuario.getText().isEmpty()&&!txt_password.getText().isEmpty()){
+            ControladorAdministrador controlAdmin =new ControladorAdministrador();
+            Administrador admin=new Administrador();
+            admin.setUser(txt_usuario.getText().trim());
+            admin.setPassword(txt_password.getText().trim());
+            if(controlAdmin.loginAdmin(admin)){
+                FormularioMenu menu = new FormularioMenu();
+                menu.setVisible(true);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario o Clave incorrectos");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Ingrese sus credenciales");
+        }
+    }
 }

@@ -12,7 +12,7 @@ import javax.swing.JTextField;
  *
  * @author juanp
  */
-public class RegistroCita extends javax.swing.JInternalFrame {
+public class AdministradorRegistroCita extends javax.swing.JInternalFrame {
 
     public JButton getBotonGuardarpaciente() {
         return botonGuardarpaciente;
@@ -55,7 +55,7 @@ public class RegistroCita extends javax.swing.JInternalFrame {
 
     
 
-    public RegistroCita() {
+    public AdministradorRegistroCita() {
         initComponents();
         this.setSize(new Dimension(400, 300));
         this.setTitle("Nueva Cita");

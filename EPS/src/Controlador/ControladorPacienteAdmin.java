@@ -8,6 +8,7 @@ import DAO.PacienteDAO;
 import Modelo.Estrato;
 import Modelo.Paciente;
 import Modelo.Sede;
+import Vista.AdministradorActualizarPaciente;
 import Vista.AdministradorRegistropaciente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +22,7 @@ import javax.swing.JOptionPane;
 public class ControladorPacienteAdmin implements ActionListener{
 //botonGuardarpaciente
     AdministradorRegistropaciente registroPacienteVista=new AdministradorRegistropaciente();
+    AdministradorActualizarPaciente verActualizarPacienteVista=new AdministradorActualizarPaciente();
     PacienteDAO pacienteDAO= new PacienteDAO();
     Paciente pa= new Paciente();
     Estrato e= new Estrato();
@@ -30,8 +32,13 @@ public class ControladorPacienteAdmin implements ActionListener{
     public ControladorPacienteAdmin(AdministradorRegistropaciente p) {
         this.registroPacienteVista=p;
         this.registroPacienteVista.botonGuardarpaciente.addActionListener(this);
-        
     }
+    public ControladorPacienteAdmin(AdministradorActualizarPaciente p) {
+        this.verActualizarPacienteVista=p;
+        this.verActualizarPacienteVista.jButton_actualizar.addActionListener(this);
+        this.verActualizarPacienteVista.jButton_eliminar.addActionListener(this);
+    }
+    
     
     public void crearPaciente(){
         if(registroPacienteVista.txt_Nombrepaciente.getText().equals("") || registroPacienteVista.txt_correoelectronico.getText().equals("") ||
@@ -54,9 +61,6 @@ public class ControladorPacienteAdmin implements ActionListener{
             pa.setFecha_nac(Date.valueOf(registroPacienteVista.txt_fechanacimientopaciente.getText()));
             
             pacienteDAO.crear(pa);
-            
-            
-            
         }
     }
     
@@ -66,6 +70,10 @@ public class ControladorPacienteAdmin implements ActionListener{
         if(e.getSource()==registroPacienteVista.botonGuardarpaciente){
            crearPaciente();
         }
+        if(e.getSource()==verActualizarPacienteVista.jButton_actualizar){
+           crearPaciente();
+        }
+        
     }
     
 }

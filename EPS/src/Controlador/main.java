@@ -4,6 +4,7 @@
  */
 package Controlador;
 import Conexion.ConexionBD;
+import Vista.LoginEPS;
 /**
  *
  * @author Santiago Pineda
@@ -13,5 +14,7 @@ public class main {
         ConexionBD con= new ConexionBD();
         con.Conexion();
         
+         LoginEPS login=new LoginEPS();
+         login.setVisible(true);
     }
 }
