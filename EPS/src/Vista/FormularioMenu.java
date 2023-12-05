@@ -3,6 +3,7 @@ package Vista;
 import Controlador.ControladorCitaAdmin;
 import Controlador.ControladorMedicoAdmin;
 import Controlador.ControladorPacienteAdmin;
+import Controlador.ControladorPacienteRecibidos;
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 import javax.swing.JMenu;
@@ -297,7 +298,10 @@ public class FormularioMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_Administrador_Registro_ProgramaEspecialActionPerformed
 
     private void menu_Ver_Pacientes_RecibidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Ver_Pacientes_RecibidosActionPerformed
-        // TODO add your handling code here:
+        AdministradorVerPacientesRecibidos a=new AdministradorVerPacientesRecibidos();
+        ControladorPacienteRecibidos c= new ControladorPacienteRecibidos(a);
+        a.setVisible(true);
+        JDesktopPAne_menu.add(a);
     }//GEN-LAST:event_menu_Ver_Pacientes_RecibidosActionPerformed
 
     private void menu_Consultar_MedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Consultar_MedicoActionPerformed
