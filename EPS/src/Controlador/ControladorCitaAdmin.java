@@ -66,8 +66,13 @@ public class ControladorCitaAdmin implements ActionListener{
     
     public void ActualizarCita(){
     
+      pa.setId_paciente(Integer.valueOf(registrocitaVista.txt_idcita.getText()));    
+      med.setLicencia_medica( registrocitaVista.txt_citaMedico.getText());
+      c.setPaciente(pa);
+      c.setDiagnostico(registrocitaVista.txt_diagnosticocita.getText());
+      c.setMedico(med);
+      citadao.actualizar(c);
       
-    
     }
 
     
