@@ -338,19 +338,18 @@ public void CargarTablaPaciente(){
 private void EnviarDatosPacienteSeleccionado(int id){
     try{
         ConexionBD con=new ConexionBD();
-        PreparedStatement pst = con.Conexion().prepareStatement("select paciente.id_paciente AS identificacion, paciente.nombre, direccion, telefono, correo_electronico, fecha_nac, lugar_nac, id_estrato, sede.nombre, programa_especial.nombre from paciente,sede,telefono_paciente, correo_electronico,programa_especial, programa_especial_adulto where paciente.id_sede=sede.id_sede AND paciente.id_paciente=telefono_paciente.id_paciente AND paciente.id_paciente=programa_especial_adulto.id_paciente AND programa_especial_adulto.id_programa=programa_especial.id_programa AND paciente.id_paciente=correo_electronico.id_paciente AND paciente.id_paciente = "+id+";");
+        PreparedStatement pst = con.Conexion().prepareStatement("select paciente.id_paciente AS identificacion, paciente.nombre AS nombre, direccion AS direccion, telefono AS telefono, correo_electronico AS correo, fecha_nac AS fecha_nac, lugar_nac AS lugar_nac, id_estrato AS estrato, sede.nombre AS sede, programa_especial.nombre AS programa from paciente,sede,telefono_paciente, correo_electronico,programa_especial, programa_especial_adulto where paciente.id_sede=sede.id_sede AND paciente.id_paciente=telefono_paciente.id_paciente AND paciente.id_paciente = "+id+";");
         ResultSet rs = pst.executeQuery();
         if(rs.next()){
-            txt_actualizarpacienteidentificacion.setText(rs.getString("paciente.id_paciente"));
+            txt_actualizarpacienteidentificacion.setText(rs.getString("identificacion"));
             txt_actualizarpacientenombre.setText(rs.getString("nombre"));
             txt_actualizarpacientecorreo.setText(rs.getString("correo"));
             txt_actualizarpacientedireccion.setText(rs.getString("direccion"));
-            txt_actualizarpacienteestrato.setText(rs.getString("id_estrato"));
+            txt_actualizarpacienteestrato.setText(rs.getString("estrato"));
 
             txt_actualizarpacientelugarnacimiento.setText(rs.getString("lugar_nac"));
             txt_actualizarpacientenacimiento.setText(rs.getString("fecha_nac"));
-            txt_actualizarpacienteprogramaespecial.setText(rs.getString("programa_especial"));
-            txt_actualizarpacientesede.setText(rs.getString("sede.nombre"));
+            txt_actualizarpacientesede.setText(rs.getString("sede"));
             txt_actualizarpacientetelefono.setText(rs.getString("telefono"));
         }
     }catch(SQLException e){
