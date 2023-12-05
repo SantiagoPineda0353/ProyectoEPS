@@ -4,6 +4,7 @@ import Controlador.ControladorCitaAdmin;
 import Controlador.ControladorMedicoAdmin;
 import Controlador.ControladorPacienteAdmin;
 import Controlador.ControladorPacienteRecibidos;
+import Controlador.ControladorPacienteRecibidosSede;
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 import javax.swing.JMenu;
@@ -79,6 +80,7 @@ public class FormularioMenu extends javax.swing.JFrame {
         menu_Ver_ExamenesSolicitados = new javax.swing.JMenuItem();
         menu_Ver_Pacientes = new javax.swing.JMenuItem();
         menu_Ver_Pacientes_Recibidos = new javax.swing.JMenuItem();
+        menu_Ver_Pacientes_Recibidos1 = new javax.swing.JMenuItem();
         menu_Ver_Medico = new javax.swing.JMenuItem();
         menu_Ver_ = new javax.swing.JMenuItem();
         menu_Consultar = new javax.swing.JMenu();
@@ -181,6 +183,15 @@ public class FormularioMenu extends javax.swing.JFrame {
             }
         });
         menu_Ver.add(menu_Ver_Pacientes_Recibidos);
+
+        menu_Ver_Pacientes_Recibidos1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        menu_Ver_Pacientes_Recibidos1.setText("Pacientes Recibidos Sede");
+        menu_Ver_Pacientes_Recibidos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_Ver_Pacientes_Recibidos1ActionPerformed(evt);
+            }
+        });
+        menu_Ver.add(menu_Ver_Pacientes_Recibidos1);
 
         menu_Ver_Medico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         menu_Ver_Medico.setText("Medico");
@@ -333,6 +344,13 @@ public class FormularioMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menu_Ver_PacientesActionPerformed
 
+    private void menu_Ver_Pacientes_Recibidos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Ver_Pacientes_Recibidos1ActionPerformed
+        AdministradorVerPacientesRecibidosSede a=new AdministradorVerPacientesRecibidosSede();
+        ControladorPacienteRecibidosSede c= new ControladorPacienteRecibidosSede(a);
+        a.setVisible(true);
+        JDesktopPAne_menu.add(a);
+    }//GEN-LAST:event_menu_Ver_Pacientes_Recibidos1ActionPerformed
+
     /**
      * @param args the command line argume nts
      */
@@ -359,5 +377,6 @@ public class FormularioMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem menu_Ver_Medico;
     private javax.swing.JMenuItem menu_Ver_Pacientes;
     private javax.swing.JMenuItem menu_Ver_Pacientes_Recibidos;
+    private javax.swing.JMenuItem menu_Ver_Pacientes_Recibidos1;
     // End of variables declaration//GEN-END:variables
 }
