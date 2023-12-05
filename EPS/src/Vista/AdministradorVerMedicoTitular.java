@@ -15,7 +15,7 @@ import javax.swing.JTextField;
  *
  * @author ediso
  */
-public class AdministradorVerMedico extends javax.swing.JInternalFrame {
+public class AdministradorVerMedicoTitular extends javax.swing.JInternalFrame {
 
     public JLabel getjLabel_wallpaper() {
         return jLabel_wallpaper;
@@ -24,7 +24,7 @@ public class AdministradorVerMedico extends javax.swing.JInternalFrame {
     
 
     
-    public AdministradorVerMedico() {
+    public AdministradorVerMedicoTitular() {
         initComponents();
         this.setSize(new Dimension(900, 500));
         this.setTitle("Examenes Solicitados");
@@ -83,7 +83,7 @@ public class AdministradorVerMedico extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Medicos");
+        jLabel1.setText("Medico Titular");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -92,13 +92,10 @@ public class AdministradorVerMedico extends javax.swing.JInternalFrame {
 
         jTable_paciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Licencia Medica", "Nombre", "Direccion", "Fecha Nacimiento", "Fecha Ingreso"
             }
         ));
         jScrollPane1.setViewportView(jTable_paciente);
@@ -182,7 +179,7 @@ public class AdministradorVerMedico extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Licencia Medica");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 110, -1));
 
         txt_actualizarpacientedireccion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPanel3.add(txt_actualizarpacientedireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 170, -1));
@@ -225,8 +222,8 @@ public class AdministradorVerMedico extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_actualizar;
-    private javax.swing.JButton jButton_eliminar;
+    public javax.swing.JButton jButton_actualizar;
+    public javax.swing.JButton jButton_eliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -238,20 +235,20 @@ public class AdministradorVerMedico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_wallpaper;
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public static javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jTable_paciente;
-    private javax.swing.JTextField txt_actualizarpacientecorreo;
-    private javax.swing.JTextField txt_actualizarpacientedireccion;
-    private javax.swing.JTextField txt_actualizarpacienteestrato;
-    private javax.swing.JTextField txt_actualizarpacienteidentificacion;
-    private javax.swing.JTextField txt_actualizarpacientelugarnacimeinto;
-    private javax.swing.JTextField txt_actualizarpacientenacimiento;
-    private javax.swing.JTextField txt_actualizarpacientenombre;
-    private javax.swing.JTextField txt_actualizarpacienteprogramaespecial;
-    private javax.swing.JTextField txt_actualizarpacientesede1;
+    public javax.swing.JTable jTable_paciente;
+    public javax.swing.JTextField txt_actualizarpacientecorreo;
+    public javax.swing.JTextField txt_actualizarpacientedireccion;
+    public javax.swing.JTextField txt_actualizarpacienteestrato;
+    public javax.swing.JTextField txt_actualizarpacienteidentificacion;
+    public javax.swing.JTextField txt_actualizarpacientelugarnacimeinto;
+    public javax.swing.JTextField txt_actualizarpacientenacimiento;
+    public javax.swing.JTextField txt_actualizarpacientenombre;
+    public javax.swing.JTextField txt_actualizarpacienteprogramaespecial;
+    public javax.swing.JTextField txt_actualizarpacientesede1;
     // End of variables declaration//GEN-END:variables
 
     /*

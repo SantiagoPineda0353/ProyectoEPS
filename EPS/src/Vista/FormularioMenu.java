@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.ControladorMedicoAdmin;
 import Controlador.ControladorPacienteAdmin;
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
@@ -111,7 +112,7 @@ public class FormularioMenu extends javax.swing.JFrame {
         menu_Registrar.add(menu_Administrador_Registrar_PacienteMayor);
 
         menu_Administrador_Registrar_Medico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menu_Administrador_Registrar_Medico.setText("Medico");
+        menu_Administrador_Registrar_Medico.setText("Medico Titular");
         menu_Administrador_Registrar_Medico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menu_Administrador_Registrar_MedicoActionPerformed(evt);
@@ -268,8 +269,11 @@ public class FormularioMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_Administrador_Registrar_PacienteMayorActionPerformed
 
     private void menu_Administrador_Registrar_MedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Administrador_Registrar_MedicoActionPerformed
-      
-        
+       
+        AdministradorRegistroMedico a=new AdministradorRegistroMedico();
+        ControladorMedicoAdmin mc= new ControladorMedicoAdmin(a);
+        a.setVisible(true);
+        JDesktopPAne_menu.add(a);
         
         
       
@@ -301,6 +305,11 @@ public class FormularioMenu extends javax.swing.JFrame {
 
     private void menu_Ver_MedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Ver_MedicoActionPerformed
         // TODO add your handling code here:
+        AdministradorVerMedicoTitular a=new AdministradorVerMedicoTitular();
+        ControladorMedicoAdmin c= new ControladorMedicoAdmin(a);
+        a.setVisible(true);
+        JDesktopPAne_menu.add(a);
+        
     }//GEN-LAST:event_menu_Ver_MedicoActionPerformed
 
     private void menu_Ver_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Ver_ActionPerformed

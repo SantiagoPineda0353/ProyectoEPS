@@ -28,19 +28,12 @@ public class CorreoElectronicoDAO implements DaoInterfaceCorreoElectronico {
             Connection conectar = conexion.Conexion();
             PreparedStatement insertar = conectar.prepareStatement("insert into correo_electronico values (?,?)");
             
-            
-            ResultSet probar = insertar.executeQuery("select * from correo_electronico where correo_electronico like '"+correoElectronico.getCorreoElectronico()+"' and id_paciente like '"+correoElectronico.getPaciente().getId_paciente()+"'");
-            
-            if(probar.next()){
-                JOptionPane.showMessageDialog(null, "Correo Electronico ya registrado");
-               
-            }else{
             insertar.setString(1,correoElectronico.getCorreoElectronico());
             insertar.setInt(2,correoElectronico.getPaciente().getId_paciente());
             insertar.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro exitoso");
            
-            }
+            
         }catch(SQLException e){
             System.out.println("error:"+e);
         }

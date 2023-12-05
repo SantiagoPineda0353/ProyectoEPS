@@ -26,11 +26,7 @@ public class AdministradorRegistroMedico extends javax.swing.JInternalFrame {
         return txt_direccionmedico;
     }
 
-    public JTextField getTxt_fechaingresomedico() {
-        return txt_horainiciomedico;
-    }
-
-    public JFormattedTextField getTxt_medicofechadenacimiento() {
+    public JTextField getTxt_medicofechadenacimiento() {
         return txt_medicofechadenacimiento;
     }
 
@@ -41,7 +37,7 @@ public class AdministradorRegistroMedico extends javax.swing.JInternalFrame {
     }
 
     public JTextField getTxt_telefonomedico() {
-        return txt_telefonomedico;
+        return txt_fechadeingreso;
     }
 
     
@@ -68,17 +64,14 @@ public class AdministradorRegistroMedico extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         txt_direccionmedico = new javax.swing.JTextField();
-        txt_telefonomedico = new javax.swing.JTextField();
+        txt_fechadeingreso = new javax.swing.JTextField();
         txt_licenciamedica = new javax.swing.JTextField();
-        txt_horainiciomedico = new javax.swing.JTextField();
-        txt_horasalidamedico = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txt_medicofechadenacimiento = new javax.swing.JFormattedTextField();
-        txt_fechadeingreso = new javax.swing.JFormattedTextField();
         botonGuardarmedico = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txt_telefonomedico1 = new javax.swing.JTextField();
+        txt_medicofechadenacimiento = new javax.swing.JTextField();
         WallPaper = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 153));
@@ -88,8 +81,8 @@ public class AdministradorRegistroMedico extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nuevo Medico");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 160, -1));
+        jLabel2.setText("Nuevo Medico Titular");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 240, -1));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre:");
@@ -111,29 +104,9 @@ public class AdministradorRegistroMedico extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Fecha de nacimiento");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
-
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Hora salida");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 110, -1));
-
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Hora inicio");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 110, -1));
         getContentPane().add(txt_direccionmedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 130, -1));
-        getContentPane().add(txt_telefonomedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 130, -1));
-        getContentPane().add(txt_licenciamedica, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, -1));
-        getContentPane().add(txt_horainiciomedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 130, -1));
-        getContentPane().add(txt_horasalidamedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 130, -1));
-
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Fecha de ingreso");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 110, -1));
-
-        txt_medicofechadenacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        getContentPane().add(txt_medicofechadenacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 130, -1));
-
-        txt_fechadeingreso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         getContentPane().add(txt_fechadeingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 130, -1));
+        getContentPane().add(txt_licenciamedica, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, -1));
 
         botonGuardarmedico.setBackground(new java.awt.Color(0, 204, 0));
         botonGuardarmedico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -145,9 +118,25 @@ public class AdministradorRegistroMedico extends javax.swing.JInternalFrame {
         });
         getContentPane().add(botonGuardarmedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
 
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Fecha de ingreso");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 110, -1));
+
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Fecha de ingreso");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 110, -1));
+        getContentPane().add(txt_telefonomedico1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 130, -1));
+
+        txt_medicofechadenacimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_medicofechadenacimientoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_medicofechadenacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 130, -1));
+
         WallPaper.setBackground(new java.awt.Color(153, 153, 153));
         WallPaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/3409297.jpg"))); // NOI18N
-        getContentPane().add(WallPaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 300));
+        getContentPane().add(WallPaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 390, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,26 +145,27 @@ public class AdministradorRegistroMedico extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_botonGuardarmedicoActionPerformed
 
+    private void txt_medicofechadenacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_medicofechadenacimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_medicofechadenacimientoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel WallPaper;
-    private javax.swing.JButton botonGuardarmedico;
+    public javax.swing.JButton botonGuardarmedico;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField txt_Nombremedico;
-    private javax.swing.JTextField txt_direccionmedico;
-    private javax.swing.JFormattedTextField txt_fechadeingreso;
-    private javax.swing.JTextField txt_horainiciomedico;
-    private javax.swing.JTextField txt_horasalidamedico;
-    private javax.swing.JTextField txt_licenciamedica;
-    private javax.swing.JFormattedTextField txt_medicofechadenacimiento;
-    private javax.swing.JTextField txt_telefonomedico;
+    public javax.swing.JTextField txt_Nombremedico;
+    public javax.swing.JTextField txt_direccionmedico;
+    public javax.swing.JTextField txt_fechadeingreso;
+    public javax.swing.JTextField txt_licenciamedica;
+    public javax.swing.JTextField txt_medicofechadenacimiento;
+    public javax.swing.JTextField txt_telefonomedico1;
     // End of variables declaration//GEN-END:variables
 }

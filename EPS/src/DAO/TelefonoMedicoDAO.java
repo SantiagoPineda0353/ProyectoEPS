@@ -33,8 +33,8 @@ public class TelefonoMedicoDAO implements DaoInterfaceTelefonoMedico{
             PreparedStatement insertar = conectar.prepareStatement("INSERT INTO telefono_medico VALUES (?,?)");
             
             
-            insertar.setString(1,TelMed.getMedico().getLicencia_medica());
-            insertar.setInt(2,TelMed.getTelefono());
+            insertar.setString(2,TelMed.getMedico().getLicencia_medica());
+            insertar.setInt(1,TelMed.getTelefono());
         
         
             insertar.executeUpdate();

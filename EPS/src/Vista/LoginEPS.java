@@ -46,7 +46,6 @@ public class LoginEPS extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         txt_usuario = new javax.swing.JTextField();
         txt_password = new javax.swing.JPasswordField();
@@ -63,47 +62,33 @@ public class LoginEPS extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setPreferredSize(new java.awt.Dimension(350, 500));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carrito1.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/carrito1.png")));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("EPS");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/imagen.png"))); // NOI18N
-        jLabel7.setText("jLabel7");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(109, 109, 109)
-                    .addComponent(jLabel4)
-                    .addContainerGap(237, Short.MAX_VALUE)))
+                .addGap(105, 105, 105)
+                .addComponent(jLabel4)
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
+                .addGap(182, 182, 182)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(324, Short.MAX_VALUE)
-                    .addComponent(jLabel4)
-                    .addGap(172, 172, 172)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addContainerGap(265, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 500));
@@ -112,6 +97,7 @@ public class LoginEPS extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txt_usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txt_usuario.setText("admin");
         txt_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_usuarioActionPerformed(evt);
@@ -124,6 +110,7 @@ public class LoginEPS extends javax.swing.JFrame {
         });
 
         txt_password.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txt_password.setText("admin123");
         txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_passwordKeyPressed(evt);
@@ -225,7 +212,6 @@ public class LoginEPS extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

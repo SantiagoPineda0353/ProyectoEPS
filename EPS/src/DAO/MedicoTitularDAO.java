@@ -31,13 +31,6 @@ public class MedicoTitularDAO implements DaoInterfaceMedicoTitular{
             Connection conectar = conexion.Conexion();
             PreparedStatement insertar = conectar.prepareStatement("insert into medico_titular values (?,?,?,?,?)");
             
-            
-            ResultSet probar = insertar.executeQuery("select * from medico_titular where licencia_medica like '"+medicoTitular.getLicencia_medica()+"'");
-            
-            if(probar.next()){
-                JOptionPane.showMessageDialog(null, "Medico ya registrado");
-               
-            }else{
             insertar.setString(1,medicoTitular.getLicencia_medica());
             insertar.setString(2,medicoTitular.getNombre());
             insertar.setString(3,medicoTitular.getDireccion());
@@ -45,11 +38,7 @@ public class MedicoTitularDAO implements DaoInterfaceMedicoTitular{
             insertar.setDate(5,Date.valueOf(medicoTitular.getFecha_ingreso().toString()));
             insertar.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro exitoso");
-            
-            }
-            
            
-            
         }catch(SQLException e){
             System.out.println("error:"+e);
         }
@@ -90,7 +79,7 @@ public class MedicoTitularDAO implements DaoInterfaceMedicoTitular{
                Connection conectar = conexion.Conexion();
                PreparedStatement insertar = conectar.prepareStatement(sql);
                 ResultSet resultSet;
-                rs = insertar.executeQuery(sql);
+                rs = insertar.executeQuery();
 
                 while (rs.next()) {
                      MedicoTitular medicoTitular = new MedicoTitular(
@@ -113,7 +102,7 @@ public class MedicoTitularDAO implements DaoInterfaceMedicoTitular{
         }
     @Override
     public void eliminar(MedicoTitular medicoTitular) {
-        String sql="delete from medico_titular where licencia_medica ="+medicoTitular.getLicencia_medica();
+        String sql="delete from medico_titular where licencia_medica ='"+medicoTitular.getLicencia_medica()+"'";
         try{
             Connection conectar = conexion.Conexion();
                PreparedStatement borrar = conectar.prepareStatement(sql);        
