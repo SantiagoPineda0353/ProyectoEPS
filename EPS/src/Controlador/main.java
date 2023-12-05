@@ -5,14 +5,16 @@
 package Controlador;
 import Conexion.ConexionBD;
 import Vista.LoginEPS;
+import java.sql.Timestamp;
 /**
  *
  * @author Santiago Pineda
  */
 public class main {
     public static void main(String[] args) {
-        ConexionBD con= new ConexionBD();
-        con.Conexion();
+        Timestamp timestampActual = new Timestamp(System.currentTimeMillis());
+        System.out.println("Timestamp actual: " + timestampActual);
+
         
          LoginEPS login=new LoginEPS();
          login.setVisible(true);

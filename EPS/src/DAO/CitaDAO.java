@@ -36,9 +36,9 @@ public class CitaDAO implements DaoInterfaceCita{
             PreparedStatement insertar = conectar.prepareStatement("insert into cita values (default,?,?,?,?,?,?)");
             
             
-            insertar.setLong(1,cita.getPaciente().getId_paciente());
+            insertar.setInt(1,cita.getPaciente().getId_paciente());
             insertar.setString(2,cita.getDiagnostico());
-            insertar.setString(3, cita.getFecha_hora().toString());
+            insertar.setTimestamp(3, cita.getFecha_hora());
             insertar.setInt(4,cita.getModalidad().getId_modalidad());
             insertar.setInt(5, cita.getSede().getId_sede());
             insertar.setString(6, cita.getMedico().getLicencia_medica());
@@ -62,7 +62,7 @@ public class CitaDAO implements DaoInterfaceCita{
             if(consulta.next()){
               cita.setId_cita(Integer.parseInt(consulta.getString("id_cita")));
               cita.getPaciente().setId_paciente(Integer.parseInt(consulta.getString("id_paciente")));
-              cita.setFecha_hora(LocalDateTime.parse(consulta.getString("fecha_hora")));
+              cita.setFecha_hora(consulta.getTimestamp("fecha_hora"));
               cita.getModalidad().setId_modalidad(Integer.parseInt(consulta.getString("id_modalidad")));
               cita.getSede().setId_sede(Integer.parseInt(consulta.getString("id_sede")));
               cita.getMedico().setLicencia_medica(consulta.getString("id_medico"));
@@ -98,7 +98,7 @@ public class CitaDAO implements DaoInterfaceCita{
                      Cita cita1 = new Cita(
                        rs.getInt("id_cita"),
                        rs.getString("diagnostico"),
-                       LocalDateTime.parse(rs.getString("fecha_hora")),
+                      rs.getTimestamp("fecha_hora"),
                        new Paciente(rs.getInt("id_paciente"),null,null,null,null,null,null),
                        new Modalidad(rs.getInt("id_modalidad"),null),
                        new Sede(rs.getInt("id_sede"),null),

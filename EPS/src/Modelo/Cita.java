@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 /**
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 public class Cita {
     int id_cita;
     String diagnostico;
-    LocalDateTime fecha_hora;
+    Timestamp fecha_hora;
     Paciente paciente;
     Modalidad modalidad;
     Sede sede;
@@ -23,7 +24,7 @@ public class Cita {
     public Cita() {
     }
 
-    public Cita(LocalDateTime fecha_hora, Paciente paciente, Modalidad modalidad, Sede sede, Medico medico) {
+    public Cita(Timestamp fecha_hora, Paciente paciente, Modalidad modalidad, Sede sede, Medico medico) {
         this.fecha_hora = fecha_hora;
         this.paciente = paciente;
         this.modalidad = modalidad;
@@ -35,7 +36,7 @@ public class Cita {
         this.id_cita = id_cita;
     }
 
-    public Cita(int id_cita, LocalDateTime fecha_hora, Paciente paciente, Modalidad modalidad, Sede sede, Medico medico) {
+    public Cita(int id_cita, Timestamp fecha_hora, Paciente paciente, Modalidad modalidad, Sede sede, Medico medico) {
         this.id_cita = id_cita;
         this.fecha_hora = fecha_hora;
         this.paciente = paciente;
@@ -44,7 +45,7 @@ public class Cita {
         this.medico = medico;
     }
 
-    public Cita(int id_cita, String diagnostico, LocalDateTime fecha_hora, Paciente paciente, Modalidad modalidad, Sede sede, Medico medico) {
+    public Cita(int id_cita, String diagnostico, Timestamp fecha_hora, Paciente paciente, Modalidad modalidad, Sede sede, Medico medico) {
         this.id_cita = id_cita;
         this.diagnostico = diagnostico;
         this.fecha_hora = fecha_hora;
@@ -70,11 +71,11 @@ public class Cita {
         this.diagnostico = diagnostico;
     }
 
-    public LocalDateTime getFecha_hora() {
+    public Timestamp getFecha_hora() {
         return fecha_hora;
     }
 
-    public void setFecha_hora(LocalDateTime fecha_hora) {
+    public void setFecha_hora(Timestamp fecha_hora) {
         this.fecha_hora = fecha_hora;
     }
 

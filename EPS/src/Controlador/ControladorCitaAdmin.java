@@ -15,7 +15,9 @@ import Vista.ConsultarCita;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,18 +44,18 @@ public class ControladorCitaAdmin implements ActionListener{
  
     public void CrearCita() {
 
-        if (registrocitaVista.txt_idcita.getText().equals("") || registrocitaVista.txt_diagnosticocita.getText().equals("")
-                || registrocitaVista.txt_citafechayhoracita.getText().equals("") || registrocitaVista.txt_citaMedico.getText().equals("")){
+        if (registrocitaVista.txt_idcita.getText().equals("") || registrocitaVista.txt_citafechayhoracita.getText().equals("") || registrocitaVista.txt_citaMedico.getText().equals("")){
 
             JOptionPane.showMessageDialog(null, "Campos sin completar");
 
         } else {
             pa.setId_paciente(Integer.valueOf(registrocitaVista.txt_idcita.getText()));
             c.setDiagnostico(registrocitaVista.txt_diagnosticocita.getText());
-            c.setFecha_hora(LocalDateTime.parse(registrocitaVista.txt_citafechayhoracita.getText()));
+            c.setFecha_hora(Timestamp.valueOf(registrocitaVista.txt_citafechayhoracita.getText()));
             m.setId_modalidad(Integer.parseInt((String) registrocitaVista.ComboBoxcitaModalidad.getSelectedItem()));
             med.setLicencia_medica(registrocitaVista.txt_citaMedico.getText());
             se.setId_sede(Integer.parseInt((String) registrocitaVista.ComboBoxcitaSede.getSelectedItem()));
+            c.setPaciente(pa);
             c.setModalidad(m);
             c.setMedico(med);
             c.setSede(se);

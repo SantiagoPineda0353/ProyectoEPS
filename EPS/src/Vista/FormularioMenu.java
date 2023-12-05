@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.ControladorCitaAdmin;
 import Controlador.ControladorMedicoAdmin;
 import Controlador.ControladorPacienteAdmin;
 import java.awt.Dimension;
@@ -261,7 +262,11 @@ public class FormularioMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_Administrador_Registrar_PacienteActionPerformed
 
     private void menu_Administrador_Registro_CitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Administrador_Registro_CitaActionPerformed
-       
+         
+        AdministradorRegistroCita a=new AdministradorRegistroCita();
+        ControladorCitaAdmin mc= new ControladorCitaAdmin(a);
+        a.setVisible(true);
+        JDesktopPAne_menu.add(a);
     }//GEN-LAST:event_menu_Administrador_Registro_CitaActionPerformed
 
     private void menu_Administrador_Registrar_PacienteMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Administrador_Registrar_PacienteMayorActionPerformed

@@ -57,7 +57,6 @@ public class AdministradorRegistroCita extends javax.swing.JInternalFrame {
 
     public AdministradorRegistroCita() {
         initComponents();
-        this.setSize(new Dimension(400, 300));
         this.setTitle("Nueva Cita");
     }
 
@@ -151,7 +150,7 @@ public class AdministradorRegistroCita extends javax.swing.JInternalFrame {
         getContentPane().add(ComboBoxcitaModalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 130, -1));
 
         WallPaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/3409297.jpg"))); // NOI18N
-        getContentPane().add(WallPaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 390, 350));
+        getContentPane().add(WallPaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 370, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
