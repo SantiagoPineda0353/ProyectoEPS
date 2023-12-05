@@ -320,7 +320,10 @@ public class FormularioMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_Consultar_MedicoActionPerformed
 
     private void menu_Consultar_PacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Consultar_PacienteActionPerformed
-        // TODO add your handling code here:
+       AdministradorVerPacientesRecibidos3 a=new AdministradorVerPacientesRecibidos3();
+        ControladorPacienteRecibidos3 c= new ControladorPacienteRecibidos3(a);
+        a.setVisible(true);
+        JDesktopPAne_menu.add(a);
     }//GEN-LAST:event_menu_Consultar_PacienteActionPerformed
 
     private void menu_Ver_MedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_Ver_MedicoActionPerformed
