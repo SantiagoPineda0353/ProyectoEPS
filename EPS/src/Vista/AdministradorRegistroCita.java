@@ -14,7 +14,7 @@ import javax.swing.JTextField;
  */
 public class AdministradorRegistroCita extends javax.swing.JInternalFrame {
 
-    public JButton getBotonGuardarpaciente() {
+  /*  public JButton getBotonGuardarpaciente() {
         return botonGuardarpaciente;
     }
 
@@ -51,7 +51,7 @@ public class AdministradorRegistroCita extends javax.swing.JInternalFrame {
         return txt_idcita;
     }
 
-   
+   */
 
     
 
@@ -77,17 +77,14 @@ public class AdministradorRegistroCita extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         txt_idcita = new javax.swing.JTextField();
         txt_citafechayhoracita = new javax.swing.JTextField();
-        txt_citamodalidad = new javax.swing.JTextField();
         txt_diagnosticocita = new javax.swing.JTextField();
-        txt_citasede = new javax.swing.JTextField();
-        txt_citacorreoelectronico = new javax.swing.JTextField();
-        ComboBoxexamencita = new javax.swing.JComboBox<>();
-        ComboBoxcitamedico = new javax.swing.JComboBox<>();
-        botonGuardarpaciente = new javax.swing.JButton();
+        txt_citaMedico = new javax.swing.JTextField();
+        ComboBoxcitaSede = new javax.swing.JComboBox<>();
+        botonActualizarpaciente = new javax.swing.JButton();
+        botonGuardarpaciente1 = new javax.swing.JButton();
+        ComboBoxcitaModalidad = new javax.swing.JComboBox<>();
         WallPaper = new javax.swing.JLabel();
 
         setClosable(true);
@@ -100,7 +97,7 @@ public class AdministradorRegistroCita extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 160, -1));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ID Cita");
+        jLabel1.setText("ID Paciente");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,82 +113,74 @@ public class AdministradorRegistroCita extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Medico");
+        jLabel7.setText("ID Medico");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 70, -1));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Sede");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 70, -1));
-
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Examen");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 110, -1));
-
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Correo Electronico");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 110, -1));
         getContentPane().add(txt_idcita, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 130, -1));
         getContentPane().add(txt_citafechayhoracita, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 130, -1));
-        getContentPane().add(txt_citamodalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 130, -1));
         getContentPane().add(txt_diagnosticocita, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, -1));
-        getContentPane().add(txt_citasede, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 130, -1));
-        getContentPane().add(txt_citacorreoelectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 130, -1));
+        getContentPane().add(txt_citaMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 130, -1));
 
-        ComboBoxexamencita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Analisis de orina", "Analisis de popis", "Analisis de sangre", "Pruebas de laboratorio", "Pruebas geneticas", "Ecografias", " ", " " }));
-        ComboBoxexamencita.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxcitaSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        getContentPane().add(ComboBoxcitaSede, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 130, -1));
+
+        botonActualizarpaciente.setBackground(new java.awt.Color(0, 204, 0));
+        botonActualizarpaciente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        botonActualizarpaciente.setText("Actualizar");
+        botonActualizarpaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBoxexamencitaActionPerformed(evt);
+                botonActualizarpacienteActionPerformed(evt);
             }
         });
-        getContentPane().add(ComboBoxexamencita, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 130, -1));
+        getContentPane().add(botonActualizarpaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, -1, -1));
 
-        ComboBoxcitamedico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBoxcitamedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 130, -1));
-
-        botonGuardarpaciente.setBackground(new java.awt.Color(0, 204, 0));
-        botonGuardarpaciente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        botonGuardarpaciente.setText("Guardar");
-        botonGuardarpaciente.addActionListener(new java.awt.event.ActionListener() {
+        botonGuardarpaciente1.setBackground(new java.awt.Color(0, 204, 0));
+        botonGuardarpaciente1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        botonGuardarpaciente1.setText("Guardar");
+        botonGuardarpaciente1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonGuardarpacienteActionPerformed(evt);
+                botonGuardarpaciente1ActionPerformed(evt);
             }
         });
-        getContentPane().add(botonGuardarpaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+        getContentPane().add(botonGuardarpaciente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
+
+        ComboBoxcitaModalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        getContentPane().add(ComboBoxcitaModalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 130, -1));
 
         WallPaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/3409297.jpg"))); // NOI18N
-        getContentPane().add(WallPaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 340));
+        getContentPane().add(WallPaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 390, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonGuardarpacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarpacienteActionPerformed
+    private void botonActualizarpacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarpacienteActionPerformed
        
-    }//GEN-LAST:event_botonGuardarpacienteActionPerformed
+    }//GEN-LAST:event_botonActualizarpacienteActionPerformed
 
-    private void ComboBoxexamencitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxexamencitaActionPerformed
+    private void botonGuardarpaciente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarpaciente1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxexamencitaActionPerformed
+    }//GEN-LAST:event_botonGuardarpaciente1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ComboBoxcitamedico;
-    private javax.swing.JComboBox<String> ComboBoxexamencita;
+    public javax.swing.JComboBox<String> ComboBoxcitaModalidad;
+    public javax.swing.JComboBox<String> ComboBoxcitaSede;
     private javax.swing.JLabel WallPaper;
-    private javax.swing.JButton botonGuardarpaciente;
+    public javax.swing.JButton botonActualizarpaciente;
+    public javax.swing.JButton botonGuardarpaciente1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField txt_citacorreoelectronico;
-    private javax.swing.JTextField txt_citafechayhoracita;
-    private javax.swing.JTextField txt_citamodalidad;
-    private javax.swing.JTextField txt_citasede;
-    private javax.swing.JTextField txt_diagnosticocita;
-    private javax.swing.JTextField txt_idcita;
+    public javax.swing.JTextField txt_citaMedico;
+    public javax.swing.JTextField txt_citafechayhoracita;
+    public javax.swing.JTextField txt_diagnosticocita;
+    public javax.swing.JTextField txt_idcita;
     // End of variables declaration//GEN-END:variables
 }

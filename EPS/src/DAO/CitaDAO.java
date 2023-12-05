@@ -49,7 +49,9 @@ public class CitaDAO implements DaoInterfaceCita{
             System.out.println("error:"+e);
         }
     }
-    @Override
+    
+    
+   @Override
     public void buscar(Cita cita) {
         try{
             Connection conectar = conexion.Conexion();
@@ -75,6 +77,12 @@ public class CitaDAO implements DaoInterfaceCita{
         
         }
     }
+
+
+    
+
+    
+    
     @Override
     public ArrayList<Cita> MostrarTodo() {
             ArrayList<Cita> lista1 = new ArrayList<>();
@@ -123,14 +131,13 @@ public class CitaDAO implements DaoInterfaceCita{
     @Override
     public void actualizar(Cita cita){
     
-        String sql = "update cita set diagnostico = ?, fecha_hora  = ? where id_cita = ?";
+        String sql = "update cita set diagnostico = ? where id_paciente = ? AND id_medico = '"+cita.getMedico().getLicencia_medica()+"'";
        
         try{
             Connection conectar = conexion.Conexion();
             PreparedStatement insertar = conectar.prepareStatement(sql);
             insertar.setString(1,cita.getDiagnostico());
-            insertar.setString(2,cita.getFecha_hora().toString());
-            insertar.setInt(3,cita.getId_cita());
+            insertar.setInt(2,cita.getPaciente().getId_paciente());
             insertar.executeUpdate();
             
         }catch(SQLException e){
